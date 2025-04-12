@@ -5,10 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using dotnetapp.Models;
 
+
+
 namespace dotnetapp.Data
 {
-    public class ApplicationDbContext:DbContext
+    public class ApplicationDbContext : DbContext
+
     {
+
         public ApplicationDbContext() : base(){}
 
         public ApplicationDbContext(DbContextOptions <ApplicationDbContext>options): base(options) {}
@@ -19,9 +23,7 @@ namespace dotnetapp.Data
 
         public DbSet<Feedback>Feedbacks {get;set;}
 
-        public DbSet<User>Users {get;set;}
-
-        
+        public DbSet<User>Users{get;set;}
 
 
     }
