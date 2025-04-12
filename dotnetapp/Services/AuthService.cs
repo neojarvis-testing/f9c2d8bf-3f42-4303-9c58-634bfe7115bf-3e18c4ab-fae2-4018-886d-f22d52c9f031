@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using dotnetapp.Models;
 using dotnetapp.Data;
+using dotnetapp.Controllers;
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
-
+ 
 namespace dotnetapp.Services
 {
     public class AuthService : IAuthService
@@ -21,30 +21,27 @@ namespace dotnetapp.Services
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _context;
-
-        public AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, ApplicationDbContext context)
+        public AuthService(UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, ApplicationDbContext context)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
             _roleManager = roleManager;
+            _signInManager = signInManager;
             _configuration = configuration;
             _context = context;
         }
-
-        public async Task<(int, string)> Register(User model, string role)
+        public async Task<(int, string)> Registration(User model, string role)
         {
             var foundUser = await _userManager.FindByEmailAsync(model.Email);
             if (foundUser != null)
             {
+                Console.WriteLine("User already exists");
                 return (0, "User already exists");
             }
-
             var user = new ApplicationUser
             {
                 UserName = model.Username,
                 Email = model.Email,
             };
-
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
@@ -53,7 +50,6 @@ namespace dotnetapp.Services
                     await _roleManager.CreateAsync(new IdentityRole(role));
                 }
                 await _userManager.AddToRoleAsync(user, role);
-
                 var customUser = new User
                 {
                     Username = model.Username,
@@ -62,7 +58,6 @@ namespace dotnetapp.Services
                     Password = model.Password,
                     UserRole = model.UserRole
                 };
-
                 _context.Users.Add(customUser);
                 await _context.SaveChangesAsync();
                 return (1, "User created successfully!");
@@ -73,17 +68,17 @@ namespace dotnetapp.Services
             }
             return (0, "User creation failed! Please check user details and try again.");
         }
-
         public async Task<(int, string)> Login(LoginModel model)
         {
+            Console.WriteLine(model.Email);
             var user = await _userManager.FindByEmailAsync(model.Email);
-            if (user == null)
+            if(user == null)
             {
-                return (0, "Invalid email");
+                Console.WriteLine("Invalid email");
+                return(0, "Invalid email");
             }
-
             var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, lockoutOnFailure: false);
-            if (result.Succeeded)
+            if(result.Succeeded)
             {
                 var customUser = _context.Users.FirstOrDefault(u => u.Email == model.Email);
                 var role = await _userManager.GetRolesAsync(user);
@@ -94,13 +89,13 @@ namespace dotnetapp.Services
                     new Claim(ClaimTypes.NameIdentifier, customUser.UserId.ToString()),
                     new Claim(ClaimTypes.Role, role.FirstOrDefault())
                 };
-
                 var token = GenerateToken(claims);
                 return (1, token);
             }
             return (0, "Invalid Password");
         }
-
+ 
+ 
         private string GenerateToken(IEnumerable<Claim> claims)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
