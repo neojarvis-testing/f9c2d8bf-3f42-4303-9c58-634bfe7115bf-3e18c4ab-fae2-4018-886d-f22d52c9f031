@@ -13,7 +13,7 @@ namespace dotnetapp.Models
         public string ChefName{get; set;}
         public string Location{get; set;}
         public int DurationInHours{get; set;}
-        public deciman Fee{get; set;}
+        public decimal Fee{get; set;}
         public string IngredientsProvided{get; set;}
         public string SkillLevel{get; set;}
         public string SpecialRequirements{get; set;}
