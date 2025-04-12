@@ -73,7 +73,6 @@ public class CookingClassRequestService
         _context.CookingClassRequests.Remove(res);
         await _context.SaveChangesAsync();
         return true;
-        //gagan
     }
 }
 
