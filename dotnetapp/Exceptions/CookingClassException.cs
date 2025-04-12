@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace dotnetapp.Exceptions
 {
-    public class CookingClassException
+    public class CookingClassException: Exception
     {
-        
+        public CookingClassException(string message): base(message){}
     }
 }
