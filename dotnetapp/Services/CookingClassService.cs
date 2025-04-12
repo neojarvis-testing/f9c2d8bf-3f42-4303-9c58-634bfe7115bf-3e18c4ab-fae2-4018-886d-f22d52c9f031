@@ -17,7 +17,7 @@ namespace dotnetapp.Services
             _context = context;
         }
 
-        public async Task<List<CookingClass>> GetAllCookingClasses()
+        public async Task<IEnumerable<CookingClass>> GetAllCookingClasses()
         {
             return await _context.CookingClasses.ToListAsync();
         }
@@ -34,7 +34,8 @@ namespace dotnetapp.Services
                 return false;
             }
             _context.CookingClasses.Add(newSession);
-            return await _context.SaveChangesAsync() > 0;
+            await _context.SaveChangesAsync() ;
+            return true;
         }
 
         public async Task<bool> UpdateCookingClass(int cookingId, CookingClass updatedSession)
@@ -58,7 +59,8 @@ namespace dotnetapp.Services
             existingClass.SkillLevel = updatedSession.SkillLevel;
             existingClass.SpecialRequirements = updatedSession.IngredientsProvided;
             
-            return await _context.SaveChangesAsync() > 0;
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> DeleteCookingClass(int cookingId)
@@ -69,7 +71,8 @@ namespace dotnetapp.Services
                 return false;
             }
             _context.CookingClasses.Remove(cookingClass);
-            return await _context.SaveChangesAsync() > 0;
+             await _context.SaveChangesAsync();
+             return true;
         }
 
     }
