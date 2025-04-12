@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using dotnetapp.Data;
 using dotnetapp.Models;
->>>>>>>>> Temporary merge branch 2
+
 
 namespace dotnetapp.Data
 {
     public class ApplicationDbContext : DbContext
     {
-<<<<<<<<< Temporary merge branch 1
+
         public ApplicationDbContext() : base(){}
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options): base(options) {}
@@ -23,13 +23,12 @@ namespace dotnetapp.Data
         public DbSet<Feedback>Feedbacks {get;set;}
 
         public DbSet<User>Users{get;set;}
-=========
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
         public DbSet<CookingClass> CookingClasses { get; set; }
         public DbSet<CookingClassRequest> CookingClassRequests { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<User> Users { get; set; }
->>>>>>>>> Temporary merge branch 2
 
     }
 }
