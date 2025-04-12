@@ -12,10 +12,6 @@ namespace dotnetapp.Data
     public class ApplicationDbContext : DbContext
     {
 
-
-
-
-
         public ApplicationDbContext() : base(){}
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options): base(options) {}
@@ -28,13 +24,6 @@ namespace dotnetapp.Data
 
         public DbSet<User>Users{get;set;}
 
-
-
-
-
-
-
-        // this is resolved
 
     }
 }
