@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using dotnetapp.Data;
+using dotnetapp.Models;
+using dotnetapp.Exceptions;
+
 
 
 namespace dotnetapp.Data
 {
-    public class ApplicationDbContext : Dbcontext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext() : base(){}
 
@@ -22,6 +26,8 @@ namespace dotnetapp.Data
         public DbSet<User>Users {get;set;}
 
         
+
+
 
 
     }
