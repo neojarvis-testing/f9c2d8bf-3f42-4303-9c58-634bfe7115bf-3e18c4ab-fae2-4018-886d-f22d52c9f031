@@ -11,7 +11,7 @@ namespace dotnetapp.Models
         public int UserId {get; set;}
         public User? User {get; set;}
         public string Feedbacktext {get; set;}
-        public Datetime Date{get; set;}
+        public DateTime Date{get; set;}
 
     }
 }
