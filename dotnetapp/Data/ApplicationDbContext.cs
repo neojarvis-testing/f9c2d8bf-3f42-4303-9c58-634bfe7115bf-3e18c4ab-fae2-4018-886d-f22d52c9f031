@@ -28,5 +28,13 @@ namespace dotnetapp.Data
 
         public DbSet<User>Users{get;set;}
 
+
+
+
+
+
+
+        // this is resolved
+
     }
 }
