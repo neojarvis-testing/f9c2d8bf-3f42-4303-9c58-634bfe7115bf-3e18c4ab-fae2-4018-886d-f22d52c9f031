@@ -4,3 +4,4 @@ git push(to add the code for my branch in github)
 git pull origin main(to access the code that is uploaded by others)
 
 hi hello changes
+resolve conflict
