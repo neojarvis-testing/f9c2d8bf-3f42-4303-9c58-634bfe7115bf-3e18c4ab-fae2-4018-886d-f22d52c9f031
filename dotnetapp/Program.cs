@@ -25,6 +25,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
  
 // Register AnnouncementService
 builder.Services.AddScoped<CookingClassService>();
+builder.Services.AddScoped<CookingClassRequestService>();
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<FeedbackService>();
+// builder.Services.AddScoped<IAuthService>();
  
 var app = builder.Build();
  
