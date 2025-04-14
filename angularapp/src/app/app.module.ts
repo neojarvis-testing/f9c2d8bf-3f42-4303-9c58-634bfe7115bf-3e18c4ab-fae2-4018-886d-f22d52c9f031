@@ -48,10 +48,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    environment
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
