@@ -1,9 +1,9 @@
-export interface Model
+export interface User
 {
-    UserId?:number;
-    Email:string
-    Password: string
-    UserName: string
-    MobileNumber:String
-    UserRole:string
+    UserId?: number;
+    Email: string;
+    Password: string;
+    Username: string;
+    MobileNumber: string;
+    UserRole: string;
 }
