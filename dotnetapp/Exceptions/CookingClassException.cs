@@ -7,6 +7,7 @@ namespace dotnetapp.Exceptions
 {
     public class CookingClassException: Exception
     {
+        public CookingClassException(string message): base(message){}
     
     }
 }
