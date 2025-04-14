@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl : "git ignore is not working"
+  apiUrl : "git ignore is not working testing abhiman"
 };
 
 /*
