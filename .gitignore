@@ -18,7 +18,7 @@ obj/
 dotnetapp.sln
 appsettings.json
 environment.ts
-Migrations/
+Migrations/"
  
 # IDEs and editors
 /.idea
