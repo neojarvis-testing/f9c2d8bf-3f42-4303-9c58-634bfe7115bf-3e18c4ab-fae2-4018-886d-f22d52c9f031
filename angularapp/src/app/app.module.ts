@@ -21,6 +21,8 @@ import { UsernavComponent } from './components/usernav/usernav.component';
 import { UserviewappliedrequestComponent } from './components/userviewappliedrequest/userviewappliedrequest.component';
 import { UserviewclassComponent } from './components/userviewclass/userviewclass.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { UserviewfeedbackComponent } from './components/userviewfeedback/uservie
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
