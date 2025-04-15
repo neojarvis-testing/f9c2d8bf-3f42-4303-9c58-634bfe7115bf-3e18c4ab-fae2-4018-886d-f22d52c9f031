@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl : "git ignore is not working testing abhiman"
+  apiUrl : "https://8080-febfddabdfebefbabbfcadcaeaecabfaedfdcf.premiumproject.examly.io"
 };
 
 /*
