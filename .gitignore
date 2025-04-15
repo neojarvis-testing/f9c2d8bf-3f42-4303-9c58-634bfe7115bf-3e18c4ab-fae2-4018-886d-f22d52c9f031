@@ -17,7 +17,7 @@ bin/
 obj/
 dotnetapp.sln
 appsettings.json
-environment.ts
+angularapp/src/environments/environment.ts
 Migrations/
  
 # IDEs and editors
