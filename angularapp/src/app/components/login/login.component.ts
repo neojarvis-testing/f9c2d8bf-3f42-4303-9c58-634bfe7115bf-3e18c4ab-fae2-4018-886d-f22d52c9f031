@@ -19,12 +19,12 @@ export class LoginComponent {
         const role = this.authService.getUserRoleFromToken(response.token);
         localStorage.setItem('userRole', role);
   
-        // Navigate to the role-specific route
+
         if (role) {
           if (role.toLowerCase() === 'admin') {
-            this.router.navigate(['/home']); // Ensure the role matches the route path
+            this.router.navigate(['/home']); 
           } else if (role.toLowerCase() === 'user') {
-            this.router.navigate(['/home']); // Make sure the User route is correct
+            this.router.navigate(['/home']); 
           }
           Swal.fire({
             title: 'Success!',
@@ -33,7 +33,7 @@ export class LoginComponent {
             confirmButtonText: 'OK'
           });
         } else {
-          this.router.navigate(['/error']); // Fallback route
+          this.router.navigate(['/error']); 
         }
       },
       error: () => {

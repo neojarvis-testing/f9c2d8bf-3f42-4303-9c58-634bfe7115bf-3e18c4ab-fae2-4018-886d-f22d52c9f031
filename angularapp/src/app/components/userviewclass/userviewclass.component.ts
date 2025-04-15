@@ -14,7 +14,6 @@ export class UserviewclassComponent implements OnInit {
   appliedClassIds: number[] = [];
   userId: number;
   searchTerm: string = '';
-  // Pagination variables
   currentPage: number = 1;
   classesPerPage: number = 10;
   constructor(

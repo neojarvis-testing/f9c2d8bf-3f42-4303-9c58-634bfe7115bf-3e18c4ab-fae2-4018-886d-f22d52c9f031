@@ -1,24 +1,23 @@
+<div>
+  <ng-container *ngIf="userRole === 'Admin'; else userNav">
+    <app-adminnav></app-adminnav>
+  </ng-container>
+  <ng-template #userNav>
+    <app-usernav></app-usernav>
+  </ng-template>
 
-<div> 
-    <ng-container *ngIf="userRole === 'Admin'; else userNav">
-      <app-adminnav></app-adminnav>
-    </ng-container>
-    <ng-template #userNav>
-      <app-usernav></app-usernav>
-    </ng-template>
-  
-<div class="admin-image">
+  <div class="admin-image">
     <div class="contenthome">
       <h1>Cooking Hub</h1>
       <p>
-          Cooking Hub is an all-in-one platform that connects users with diverse culinary classes tailored to 
-          various skill levels and interests. The app offers a wide range of cooking options, from mastering basic 
-          cooking techniques and learning international cuisines to specialized classes like baking, vegan cooking, 
-          and gourmet recipes. Each class is led by professional chefs and includes comprehensive descriptions, 
-          skill prerequisites, and easy enrollment options. Cooking Hub aims to make culinary arts accessible and 
-          enjoyable, providing users with personalized guidance to enhance their cooking skills and explore their passion for food.
+        Cooking Hub is an all-in-one platform that connects users with diverse culinary classes tailored to
+        various skill levels and interests. The app offers a wide range of cooking options, from mastering basic
+        cooking techniques and learning international cuisines to specialized classes like baking, vegan cooking,
+        and gourmet recipes. Each class is led by professional chefs and includes comprehensive descriptions,
+        skill prerequisites, and easy enrollment options. Cooking Hub aims to make culinary arts accessible and
+        enjoyable, providing users with personalized guidance to enhance their cooking skills and explore their passion
+        for food.
       </p>
     </div>
-  </div> 
   </div>
-  
+</div>

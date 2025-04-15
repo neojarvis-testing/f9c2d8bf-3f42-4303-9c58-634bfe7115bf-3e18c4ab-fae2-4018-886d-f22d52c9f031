@@ -28,7 +28,7 @@ export class UseraddfeedbackComponent implements OnInit {
   }
   onSubmit(feedbackForm: any): void {
     if (!this.feedback.FeedbackText) {
-      feedbackForm.form.markAllAsTouched(); // Mark all fields as touched to show validation messages
+      feedbackForm.form.markAllAsTouched(); 
       return;
     }
     this.feedbackService.sendFeedback(this.feedback).subscribe(() => {
@@ -37,7 +37,7 @@ export class UseraddfeedbackComponent implements OnInit {
   }
   closePopup(): void {
     this.showPopup = false;
-    this.router.navigate(['/userviewfeedback']); // Redirect to userviewfeedback component
+    this.router.navigate(['/userviewfeedback']); 
   }
 }
 

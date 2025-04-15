@@ -14,7 +14,6 @@ namespace dotnetapp.Services
         {
             _context = context;
         }
-        // Retrieves all cooking class requests, including related CookingClass and User details.
         public async Task<IEnumerable<CookingClassRequest>> GetAllCookingClassRequests()
         {
             return await _context.CookingClassRequests
@@ -22,7 +21,6 @@ namespace dotnetapp.Services
                 .Include(r => r.User)
                 .ToListAsync();
         }
-        // Retrieves all cooking class requests for a specific user.
         public async Task<IEnumerable<CookingClassRequest>> GetCookingClassRequestsByUserId(int userId)
         {
             return await _context.CookingClassRequests
@@ -31,7 +29,6 @@ namespace dotnetapp.Services
                 .Include(r => r.User)
                 .ToListAsync();
         }
-        // Adds a new cooking class request if it does not already exist.
         public async Task<bool> AddCookingClassRequest(CookingClassRequest request)
         {
             var existingRequest = await _context.CookingClassRequests
@@ -44,7 +41,6 @@ namespace dotnetapp.Services
             await _context.SaveChangesAsync();
             return true;
         }
-        // Updates an existing cooking class request.
         public async Task<bool> UpdateCookingClassRequest(int requestId, CookingClassRequest request)
         {
             var existingRequest = await _context.CookingClassRequests.FindAsync(requestId);
@@ -57,7 +53,6 @@ namespace dotnetapp.Services
             await _context.SaveChangesAsync();
             return true;
         }
-        // Deletes a cooking class request.
         public async Task<bool> DeleteCookingClassRequest(int requestId)
         {
             var request = await _context.CookingClassRequests.FindAsync(requestId);
