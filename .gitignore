@@ -17,6 +17,7 @@ bin/
 obj/
 dotnetapp.sln
 appsettings.json
+environment.ts
 Migrations/
  
 # IDEs and editors
