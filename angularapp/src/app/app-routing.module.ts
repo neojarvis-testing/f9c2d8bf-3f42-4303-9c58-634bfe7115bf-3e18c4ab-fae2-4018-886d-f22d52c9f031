@@ -38,7 +38,8 @@ const routes: Routes = [
   {path:'useraddfeedback', component:UseraddfeedbackComponent, canActivate:[AuthGuard], data:{role:'User'}},
   {path:'userviewclass', component:UserviewclassComponent, canActivate:[AuthGuard], data:{role:'User'}},
   {path:'userviewappliedrequest', component:UserviewappliedrequestComponent, canActivate:[AuthGuard], data:{role:'User'}},
-  {path:'useraddrequest', component:UseraddrequestComponent, canActivate:[AuthGuard], data:{role:'User'}}
+  {path:'useraddrequest', component:UseraddrequestComponent, canActivate:[AuthGuard], data:{role:'User'}},
+  {path:'', redirectTo:'home', pathMatch:'full'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
