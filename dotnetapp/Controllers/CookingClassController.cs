@@ -13,17 +13,10 @@ namespace dotnetapp.Controllers
     public class CookingClassController : ControllerBase
     {
         private readonly CookingClassService _cookingClassService;
-        // Constructor for CookingClassController.
-        // Initializes a new instance of the CookingClassController class
-        // with the provided CookingClassService.
-
         public CookingClassController(CookingClassService cookingClassService)
         {
             _cookingClassService = cookingClassService;
         }
-        // Retrieves all cooking class sessions.
-        // GET: api/CookingClass
-        // Returns a list of all cooking classes.
         [HttpGet]
         [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<IEnumerable<CookingClass>>> GetAllCookingClasses()
@@ -39,15 +32,9 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                // Returns a 500 Internal Server Error response with the exception message.
                 return StatusCode(500, new { Message = $"An error occured while fetching all the cooking classes: {ex.Message}" });
             }
         }
-        // Retrieves a specific cooking class session by ID.
-        // GET: api/CookingClass/{classId}
-        // Parameters:
-        //   classId: The ID of the cooking class to retrieve.
-        // Returns a specific cooking class or a 404 Not Found response if the class does not exist.
         [HttpGet("{classId}")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<CookingClass>> GetCookingClassById(int classId)
@@ -61,15 +48,9 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                // Returns a 500 Internal Server Error response with the exception message.
                 return StatusCode(500, new { Message = $"An error occured while fetching the cooking class by ID: {ex.Message}" });
             }
         }
-        // Adds a new cooking class.
-        // POST: api/CookingClass
-        // Parameters:
-        //   cooking: The cooking class details to add.
-        // Returns a 200 OK response if the class is added successfully or a 500 Internal Server Error response if there is a failure.
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> AddCookingClass([FromBody] CookingClass cooking)
@@ -83,16 +64,9 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                // Returns a 500 Internal Server Error response with the exception message.
                 return StatusCode(500, new { Message = $"An error occured while adding the cooking class: {ex.Message}" });
             }
         }
-        // Updates an existing cooking class.
-        // PUT: api/CookingClass/{classId}
-        // Parameters:
-        //   classId: The ID of the cooking class to update.
-        //   cooking: The updated cooking class details.
-        // Returns a 200 OK response if the class is updated successfully or a 404 Not Found response if the class does not exist.
         [HttpPut("{classId}")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdateCookingClass(int classId, [FromBody] CookingClass cooking)
@@ -106,15 +80,9 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                // Returns a 500 Internal Server Error response with the exception message.
                 return StatusCode(500, new { Message = $"An error occured while updating the cooking class: {ex.Message}" });
             }
         }
-        // Deletes a cooking class session.
-        // DELETE: api/CookingClass/{classId}
-        // Parameters:
-        //   classId: The ID of the cooking class to delete.
-        // Returns a 200 OK response if the class is deleted successfully or a 404 Not Found response if the class does not exist.
         [HttpDelete("{classId}")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteCookingClass(int classId)
@@ -128,7 +96,6 @@ namespace dotnetapp.Controllers
             }
             catch (Exception ex)
             {
-                // Returns a 500 Internal Server Error response with the exception message.
                 return StatusCode(500, new { Message = $"An error occured while Deleting the Cooking class: {ex.Message}" });
             }
         }

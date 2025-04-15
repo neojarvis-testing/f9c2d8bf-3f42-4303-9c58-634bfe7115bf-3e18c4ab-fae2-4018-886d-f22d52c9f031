@@ -15,7 +15,7 @@ export class AdminviewfeedbackComponent implements OnInit {
   showLogoutModal: boolean = false;
   errorMessage: string = '';
   Username: string = '';
-  // Pagination properties
+
   currentPage: number = 1;
   itemsPerPage: number = 10;
   constructor(private feedbackService: FeedbackService, private router: Router) { }
@@ -28,7 +28,7 @@ export class AdminviewfeedbackComponent implements OnInit {
       (data) => {
         console.log('Loading feedbacks...');
         this.feedbacks = data;
-        this.loadUsernames(); // Call after feedbacks are loaded
+        this.loadUsernames(); 
         console.log(this.feedbacks);
         if (this.feedbacks.length === 0) {
           this.errorMessage = 'No data found';
@@ -69,7 +69,7 @@ export class AdminviewfeedbackComponent implements OnInit {
   logout(): void {
     this.router.navigate(['/login']);
   }
-  // Pagination methods
+
   get paginatedFeedbacks(): Feedback[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     return this.feedbacks.slice(startIndex, startIndex + this.itemsPerPage);

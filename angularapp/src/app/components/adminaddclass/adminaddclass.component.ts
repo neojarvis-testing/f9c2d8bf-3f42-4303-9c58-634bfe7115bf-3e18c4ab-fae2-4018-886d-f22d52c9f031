@@ -42,7 +42,6 @@ export class AdminaddclassComponent implements OnInit {
     } else {
       this.isLoggedIn = false;
       this.showErrorMessage('Please log in to add a cooking class');
-      // this.route.navigate(['/login']);
     }
   }
   addCookingClass(form: NgForm) {
@@ -57,7 +56,7 @@ export class AdminaddclassComponent implements OnInit {
       next: () => {
         this.route.navigate(['/adminviewclass']);
         this.showSuccessMessage('Cooking class added successfully');
-        this.showModal = true; // Show the modal on success
+        this.showModal = true; 
       },
       error: (error) => {
         console.error('Error adding cooking class:', error);
@@ -66,7 +65,7 @@ export class AdminaddclassComponent implements OnInit {
         } else {
           this.showErrorMessage('Error adding cooking class');
         }
-        this.showModal = true; // Show the modal on error
+        this.showModal = true; 
       }
     });
   }
@@ -117,8 +116,8 @@ export class AdminaddclassComponent implements OnInit {
     }
   }
   closeModal() {
-    this.showModal = false;  // Close the modal
-    this.showModalOnce = false; // Reset the flag
+    this.showModal = false;  
+    this.showModalOnce = false; 
   }
   showErrorMessage(message: string): void {
     this.message = message;

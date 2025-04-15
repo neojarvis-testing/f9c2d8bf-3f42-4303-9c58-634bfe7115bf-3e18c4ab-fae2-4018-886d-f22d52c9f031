@@ -1,94 +1,117 @@
 <app-adminnav></app-adminnav>
 <div class="create-class-container">
-<h1>Create New Cooking Class</h1>
-<form #classForm="ngForm" (ngSubmit)="addCookingClass(classForm)">
-<div class="form-group">
-<label for="ClassName">Class Name <span class="required">*</span></label>
-<input type="text" id="ClassName" name="ClassName" [(ngModel)]="newCookingClass.ClassName" required minlength="1" maxlength="50" (blur)="validateField(classForm, 'ClassName')">
-<div *ngIf="classForm.submitted || classForm.controls.ClassName?.dirty">
-<div *ngIf="classForm.controls.ClassName?.errors?.required" class="error">Class Name is required</div>
-<div *ngIf="classForm.controls.ClassName?.errors?.maxlength" class="error">Class Name must be less than 50 characters</div>
-</div>
-</div>
-<div class="form-group">
-<label for="CuisineType">Cuisine Type <span class="required">*</span></label>
-<input type="text" id="CuisineType" name="CuisineType" [(ngModel)]="newCookingClass.CuisineType" required minlength="1" maxlength="30" (blur)="validateField(classForm, 'CuisineType')">
-<div *ngIf="classForm.submitted || classForm.controls.CuisineType?.dirty">
-<div *ngIf="classForm.controls.CuisineType?.errors?.required" class="error">Cuisine Type is required</div>
-<div *ngIf="classForm.controls.CuisineType?.errors?.maxlength" class="error">Cuisine Type must be less than 30 characters</div>
-</div>
-</div>
-<div class="form-group">
-<label for="ChefName">Chef Name <span class="required">*</span></label>
-<input type="text" id="ChefName" name="ChefName" [(ngModel)]="newCookingClass.ChefName" required minlength="1" maxlength="50" (blur)="validateField(classForm, 'ChefName')">
-<div *ngIf="classForm.submitted || classForm.controls.ChefName?.dirty">
-<div *ngIf="classForm.controls.ChefName?.errors?.required" class="error">Chef Name is required</div>
-<div *ngIf="classForm.controls.ChefName?.errors?.maxlength" class="error">Chef Name must be less than 50 characters</div>
-</div>
-</div>
-<div class="form-group">
-<label for="Location">Location <span class="required">*</span></label>
-<input type="text" id="Location" name="Location" [(ngModel)]="newCookingClass.Location" required minlength="1" maxlength="100" (blur)="validateField(classForm, 'Location')">
-<div *ngIf="classForm.submitted || classForm.controls.Location?.dirty">
-<div *ngIf="classForm.controls.Location?.errors?.required" class="error">Location is required</div>
-<div *ngIf="classForm.controls.Location?.errors?.maxlength" class="error">Location must be less than 100 characters</div>
-</div>
-</div>
-<div class="form-group">
-<label for="DurationInHours">Duration (Hours) <span class="required">*</span></label>
-<input type="number" id="DurationInHours" name="DurationInHours" [(ngModel)]="newCookingClass.DurationInHours" required min="1" (blur)="validateField(classForm, 'DurationInHours')">
-<div *ngIf="classForm.submitted || classForm.controls.DurationInHours?.dirty">
-<div *ngIf="classForm.controls.DurationInHours?.errors?.required" class="error">Duration is required</div>
-<div *ngIf="classForm.controls.DurationInHours?.errors?.min" class="error">Duration must be greater than 0 hours</div>
-</div>
-</div>
-<div class="form-group">
-<label for="Fee">Fee <span class="required">*</span></label>
-<input type="number" id="Fee" name="Fee" [(ngModel)]="newCookingClass.Fee" required min="0" (blur)="validateField(classForm, 'Fee')">
-<div *ngIf="classForm.submitted || classForm.controls.Fee?.dirty">
-<div *ngIf="classForm.controls.Fee?.errors?.required" class="error">Fee is required</div>
-<div *ngIf="classForm.controls.Fee?.errors?.min" class="error">Fee must be a positive number</div>
-</div>
-</div>
-<div class="form-group">
-<label for="IngredientsProvided">Ingredients Provided <span class="required">*</span></label>
-<input type="text" id="IngredientsProvided" name="IngredientsProvided" [(ngModel)]="newCookingClass.IngredientsProvided" required minlength="1" maxlength="200" (blur)="validateField(classForm, 'IngredientsProvided')">
-<div *ngIf="classForm.submitted || classForm.controls.IngredientsProvided?.dirty">
-<div *ngIf="classForm.controls.IngredientsProvided?.errors?.required" class="error">Ingredients Provided is required</div>
-<div *ngIf="classForm.controls.IngredientsProvided?.errors?.maxlength" class="error">Ingredients Provided must be less than 200 characters</div>
-</div>
-</div>
-<div class="form-group">
-<label for="SkillLevel">Skill Level <span class="required">*</span></label>
-<select id="SkillLevel" name="SkillLevel" [(ngModel)]="newCookingClass.SkillLevel" class="custom-dropdown" required (blur)="validateField(classForm, 'SkillLevel')">
-<option value="" disabled selected>Select Skill Level</option>
-<option value="Beginner">Beginner</option>
-<option value="Intermediate">Intermediate</option>
-<option value="Advanced">Advanced</option>
-</select>
-<div *ngIf="classForm.submitted || classForm.controls.SkillLevel?.dirty">
-<div *ngIf="classForm.controls.SkillLevel?.errors?.required" class="error">Skill Level is required</div>
-</div>
-</div>
-<div class="form-group">
-<label for="SpecialRequirements">Special Requirements <span class="required">*</span></label>
-<input type="text" id="SpecialRequirements" name="SpecialRequirements" [(ngModel)]="newCookingClass.SpecialRequirements" required minlength="1" maxlength="200" (blur)="validateField(classForm, 'SpecialRequirements')">
-<div *ngIf="classForm.submitted || classForm.controls.SpecialRequirements?.dirty">
-<div *ngIf="classForm.controls.SpecialRequirements?.errors?.required" class="error">Special Requirements is required</div>
-<div *ngIf="classForm.controls.SpecialRequirements?.errors?.maxlength" class="error">Special Requirements must be less than 200 characters</div>
-</div>
-</div>
-<button type="submit">Submit</button>
-<div class="form-validation-message">
-<p *ngIf="message" [ngClass]="{'error': message.includes('Error'), 'success': message.includes('Success')}">{{ message }}</p>
-</div>
-</form>
-<!-- Modal -->
-<div *ngIf="showModal" class="modal">
-<div class="modal-content">
-<span class="close" (click)="closeModal()">&times;</span>
-<p>{{ message }}</p>
-<button class="ok-button" (click)="closeModal()">OK</button>
-</div>
-</div>
+    <h1>Create New Cooking Class</h1>
+    <form #classForm="ngForm" (ngSubmit)="addCookingClass(classForm)">
+        <div class="form-group">
+            <label for="ClassName">Class Name <span class="required">*</span></label>
+            <input type="text" id="ClassName" name="ClassName" [(ngModel)]="newCookingClass.ClassName" required
+                minlength="1" maxlength="50" (blur)="validateField(classForm, 'ClassName')">
+            <div *ngIf="classForm.submitted || classForm.controls.ClassName?.dirty">
+                <div *ngIf="classForm.controls.ClassName?.errors?.required" class="error">Class Name is required</div>
+                <div *ngIf="classForm.controls.ClassName?.errors?.maxlength" class="error">Class Name must be less than
+                    50 characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="CuisineType">Cuisine Type <span class="required">*</span></label>
+            <input type="text" id="CuisineType" name="CuisineType" [(ngModel)]="newCookingClass.CuisineType" required
+                minlength="1" maxlength="30" (blur)="validateField(classForm, 'CuisineType')">
+            <div *ngIf="classForm.submitted || classForm.controls.CuisineType?.dirty">
+                <div *ngIf="classForm.controls.CuisineType?.errors?.required" class="error">Cuisine Type is required
+                </div>
+                <div *ngIf="classForm.controls.CuisineType?.errors?.maxlength" class="error">Cuisine Type must be less
+                    than 30 characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ChefName">Chef Name <span class="required">*</span></label>
+            <input type="text" id="ChefName" name="ChefName" [(ngModel)]="newCookingClass.ChefName" required
+                minlength="1" maxlength="50" (blur)="validateField(classForm, 'ChefName')">
+            <div *ngIf="classForm.submitted || classForm.controls.ChefName?.dirty">
+                <div *ngIf="classForm.controls.ChefName?.errors?.required" class="error">Chef Name is required</div>
+                <div *ngIf="classForm.controls.ChefName?.errors?.maxlength" class="error">Chef Name must be less than 50
+                    characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Location">Location <span class="required">*</span></label>
+            <input type="text" id="Location" name="Location" [(ngModel)]="newCookingClass.Location" required
+                minlength="1" maxlength="100" (blur)="validateField(classForm, 'Location')">
+            <div *ngIf="classForm.submitted || classForm.controls.Location?.dirty">
+                <div *ngIf="classForm.controls.Location?.errors?.required" class="error">Location is required</div>
+                <div *ngIf="classForm.controls.Location?.errors?.maxlength" class="error">Location must be less than 100
+                    characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="DurationInHours">Duration (Hours) <span class="required">*</span></label>
+            <input type="number" id="DurationInHours" name="DurationInHours"
+                [(ngModel)]="newCookingClass.DurationInHours" required min="1"
+                (blur)="validateField(classForm, 'DurationInHours')">
+            <div *ngIf="classForm.submitted || classForm.controls.DurationInHours?.dirty">
+                <div *ngIf="classForm.controls.DurationInHours?.errors?.required" class="error">Duration is required
+                </div>
+                <div *ngIf="classForm.controls.DurationInHours?.errors?.min" class="error">Duration must be greater than
+                    0 hours</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Fee">Fee <span class="required">*</span></label>
+            <input type="number" id="Fee" name="Fee" [(ngModel)]="newCookingClass.Fee" required min="0"
+                (blur)="validateField(classForm, 'Fee')">
+            <div *ngIf="classForm.submitted || classForm.controls.Fee?.dirty">
+                <div *ngIf="classForm.controls.Fee?.errors?.required" class="error">Fee is required</div>
+                <div *ngIf="classForm.controls.Fee?.errors?.min" class="error">Fee must be a positive number</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="IngredientsProvided">Ingredients Provided <span class="required">*</span></label>
+            <input type="text" id="IngredientsProvided" name="IngredientsProvided"
+                [(ngModel)]="newCookingClass.IngredientsProvided" required minlength="1" maxlength="200"
+                (blur)="validateField(classForm, 'IngredientsProvided')">
+            <div *ngIf="classForm.submitted || classForm.controls.IngredientsProvided?.dirty">
+                <div *ngIf="classForm.controls.IngredientsProvided?.errors?.required" class="error">Ingredients Provided
+                    is required</div>
+                <div *ngIf="classForm.controls.IngredientsProvided?.errors?.maxlength" class="error">Ingredients
+                    Provided must be less than 200 characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SkillLevel">Skill Level <span class="required">*</span></label>
+            <select id="SkillLevel" name="SkillLevel" [(ngModel)]="newCookingClass.SkillLevel" class="custom-dropdown"
+                required (blur)="validateField(classForm, 'SkillLevel')">
+                <option value="" disabled selected>Select Skill Level</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+            <div *ngIf="classForm.submitted || classForm.controls.SkillLevel?.dirty">
+                <div *ngIf="classForm.controls.SkillLevel?.errors?.required" class="error">Skill Level is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SpecialRequirements">Special Requirements <span class="required">*</span></label>
+            <input type="text" id="SpecialRequirements" name="SpecialRequirements"
+                [(ngModel)]="newCookingClass.SpecialRequirements" required minlength="1" maxlength="200"
+                (blur)="validateField(classForm, 'SpecialRequirements')">
+            <div *ngIf="classForm.submitted || classForm.controls.SpecialRequirements?.dirty">
+                <div *ngIf="classForm.controls.SpecialRequirements?.errors?.required" class="error">Special Requirements
+                    is required</div>
+                <div *ngIf="classForm.controls.SpecialRequirements?.errors?.maxlength" class="error">Special
+                    Requirements must be less than 200 characters</div>
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+        <div class="form-validation-message">
+            <p *ngIf="message" [ngClass]="{'error': message.includes('Error'), 'success': message.includes('Success')}">
+                {{ message }}</p>
+        </div>
+    </form>
+    <div *ngIf="showModal" class="modal">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <p>{{ message }}</p>
+            <button class="ok-button" (click)="closeModal()">OK</button>
+        </div>
+    </div>
 </div>

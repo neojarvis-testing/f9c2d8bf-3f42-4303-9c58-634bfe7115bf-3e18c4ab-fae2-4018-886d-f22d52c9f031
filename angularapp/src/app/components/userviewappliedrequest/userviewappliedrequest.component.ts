@@ -11,7 +11,7 @@ export class UserviewappliedrequestComponent implements OnInit {
   appliedRequests: CookingClassRequest[] = [];
   filteredRequests: CookingClassRequest[] = [];
   searchQuery: string = '';
-  // Pagination variables
+
   currentPage: number = 1;
   requestsPerPage: number = 10;
   constructor(

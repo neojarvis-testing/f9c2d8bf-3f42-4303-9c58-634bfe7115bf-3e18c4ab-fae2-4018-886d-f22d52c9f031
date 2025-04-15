@@ -28,12 +28,12 @@ export class AdminviewappliedrequestComponent implements OnInit {
             console.error("Missing request ID for:", req);
           }
           if (req.Status === undefined || req.Status === null) {
-            req.Status = 'Pending'; // Default to Pending
+            req.Status = 'Pending'; 
           }
           return req;
         });
         this.filteredRequests = this.requests;
-        this.filterData(); // Apply filters after fetching data
+        this.filterData(); 
         this.updatePagination();
       },
       error: (error) => {

@@ -1,13 +1,8 @@
-<app-usernav></app-usernav>
+<!-- <app-usernav></app-usernav> -->
 <div class="container">
   <h2>Applied Class Requests</h2>
-  <input
-    type="text"
-    placeholder="Search by Class Name"
-    [(ngModel)]="searchQuery"
-    (input)="searchRequests()"
-    class="search-box"
-  />
+  <input type="text" placeholder="Search by Class Name" [(ngModel)]="searchQuery" (input)="searchRequests()"
+    class="search-box" />
   <table class="requests-table">
     <thead>
       <tr>
@@ -31,14 +26,10 @@
           {{ request.Status }}
         </td>
         <td>
-          <button
-            [disabled]="request.Status === 'Approved' || request.Status === 'Rejected'"
-            [ngClass]="{
+          <button [disabled]="request.Status === 'Approved' || request.Status === 'Rejected'" [ngClass]="{
               'delete-button': request.Status !== 'Approved' && request.Status !== 'Rejected',
               'disabled-button': request.Status === 'Approved' || request.Status === 'Rejected'
-            }"
-            (click)="confirmDelete(request.CookingClassRequestId!)"
-          >
+            }" (click)="confirmDelete(request.CookingClassRequestId!)">
             Delete
           </button>
         </td>
@@ -51,7 +42,3 @@
     <button (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Next</button>
   </div>
 </div>
-  
-  
-  
-
