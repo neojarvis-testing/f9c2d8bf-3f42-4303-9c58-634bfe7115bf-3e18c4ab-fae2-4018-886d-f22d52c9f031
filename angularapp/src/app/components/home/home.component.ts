@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userRole = this.authService.getUserRole();
     console.log(this.userRole);
-    // Preload background image
+
     this.preloadImage('/assets/images/AdminHome1.jpg');
   }
   preloadImage(src: string): void {

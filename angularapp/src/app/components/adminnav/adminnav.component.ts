@@ -8,27 +8,27 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   styleUrls: ['./adminnav.component.css']
 })
 export class AdminnavComponent implements OnInit {
-  isAdmin: boolean = true; // Set to true if the user is an admin
-  Username: string = ''; // Placeholder for the actual username
+  isAdmin: boolean = true; 
+  Username: string = ''; 
   role: string = this.isAdmin ? 'Admin' : 'User';
-  userId: number; // Ensure you have userId
-  showLogoutModal: boolean = false; // Add this line
+  userId: number; 
+  showLogoutModal: boolean = false; 
   constructor(private authService: AuthService, private router: Router, private feedbackService: FeedbackService) {}
   ngOnInit(): void {
-    this.userId = parseInt(localStorage.getItem('userId')!, 10); // Assuming userId is stored in localStorage
+    this.userId = parseInt(localStorage.getItem('userId')!, 10); 
     this.Username = localStorage.getItem('userName');
   }
  
   logout(): void {
-    this.showLogoutModal = true; // Show the modal
+    this.showLogoutModal = true; 
   }
   confirmLogout(): void {
-    this.showLogoutModal = false; // Hide the modal
+    this.showLogoutModal = false; 
     this.authService.logout();
     this.router.navigate(['/login']);
   }
   cancelLogout(): void {
-    this.showLogoutModal = false; // Hide the modal
+    this.showLogoutModal = false; 
   }
   toggleDropdown(event: Event): void {
     event.preventDefault();

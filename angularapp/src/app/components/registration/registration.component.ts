@@ -55,9 +55,9 @@ export class RegistrationComponent implements OnInit {
       Email: this.email,
       Password: this.password,
       MobileNumber: this.mobileNumber,
-      UserRole: this.userRole // Update to match expected backend field
+      UserRole: this.userRole 
     };
-    console.log('Registration Data:', JSON.stringify(registrationData, null, 2)); // Detailed log
+    console.log('Registration Data:', JSON.stringify(registrationData, null, 2)); 
     console.log('Role Value:', this.userRole);
     this.authService.register(registrationData).subscribe({
       next: (response) => {

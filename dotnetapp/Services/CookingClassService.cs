@@ -15,17 +15,14 @@ namespace dotnetapp.Services
         {
             _context = context;
         }
-        // Retrieves all cooking classes from the database.
         public async Task<IEnumerable<CookingClass>> GetAllCookingClasses()
         {
             return await _context.CookingClasses.ToListAsync();
         }
-        // Retrieves a cooking class by its ID.
         public async Task<CookingClass> GetCookingClassById(int cookingId)
         {
             return await _context.CookingClasses.FindAsync(cookingId);
         }
-        // Adds a new cooking class if it does not already exist.
         public async Task<bool> AddCookingClass(CookingClass cooking)
         {
             var existingClass = await _context.CookingClasses
@@ -38,7 +35,6 @@ namespace dotnetapp.Services
             await _context.SaveChangesAsync();
             return true;
         }
-        // Updates an existing cooking class.
         public async Task<bool> UpdateCookingClass(int cookingId, CookingClass cooking)
         {
             var existingClass = await _context.CookingClasses.FindAsync(cookingId);
@@ -61,7 +57,6 @@ namespace dotnetapp.Services
             await _context.SaveChangesAsync();
             return true;
         }
-        // Deletes a cooking class if it is not referenced in any requests.
         public async Task<bool> DeleteCookingClass(int cookingId)
         {
             var cookingClass = await _context.CookingClasses.FindAsync(cookingId);
