@@ -1,0 +1,65 @@
+:root {
+    --primary-color: #ff6347; /* Tomato */
+    --secondary-color: #ffffff; /* White */
+    --hover-color: #ff4500; /* OrangeRed */
+    --background-color: #f8f9fa; /* Light Gray */
+    --font-color: #333333; /* Dark Gray */
+  }
+  
+  body {
+    background-color: var(--background-color);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 30px;
+  }
+  
+  .brand-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .navigation {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+    background-color: var(--hover-color);
+  }
+  
