@@ -18,7 +18,7 @@ namespace dotnetapp.Controllers
             _cookingClassService = cookingClassService;
         }
         [HttpGet]
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = "Admin/User")] // failing
         public async Task<ActionResult<IEnumerable<CookingClass>>> GetAllCookingClasses()
         {
             try
