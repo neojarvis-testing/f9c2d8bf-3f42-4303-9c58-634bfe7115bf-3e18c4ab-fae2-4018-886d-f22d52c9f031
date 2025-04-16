@@ -18,11 +18,14 @@ import { UseraddfeedbackComponent } from './components/useraddfeedback/useraddfe
 import { UserviewclassComponent } from './components/userviewclass/userviewclass.component';
 import { UserviewappliedrequestComponent } from './components/userviewappliedrequest/userviewappliedrequest.component';
 import { UseraddrequestComponent } from './components/useraddrequest/useraddrequest.component';
+// import { LandingComponent } from './landing/landing.component';
+
 
 const routes: Routes = [
-  {path: 'home', component:HomeComponent},
+  // {path:'landing', component:LandingComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegistrationComponent},
+  {path: 'home', component:HomeComponent},
   {path: 'cooking-imp', component:CookingImpComponent, canActivate:[AuthGuard], data: {role: 'User'}},
   {path: 'error', component:ErrorComponent},
   {path:'adminviewfeedback', component:AdminviewfeedbackComponent, canActivate:[AuthGuard], data: {role : 'Admin'}},
@@ -39,11 +42,11 @@ const routes: Routes = [
   {path:'userviewclass', component:UserviewclassComponent, canActivate:[AuthGuard], data:{role:'User'}},
   {path:'userviewappliedrequest', component:UserviewappliedrequestComponent, canActivate:[AuthGuard], data:{role:'User'}},
   {path:'useraddrequest', component:UseraddrequestComponent, canActivate:[AuthGuard], data:{role:'User'}},
-  {path:'', redirectTo:'home', pathMatch:'full'}
+  // {path:'', redirectTo:'/landing', pathMatch:'full'}
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
