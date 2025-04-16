@@ -16,7 +16,7 @@ export class AuthService {
   }
   login(credentials: { email: string; password: string }): Observable<any> {
     return new Observable(observer => {
-      this.http.post<any>(`${this.apiUrl}/api/login`, credentials).subscribe( // Ensure this URL matches your backend endpoint
+      this.http.post<any>(`${this.apiUrl}/login`, credentials).subscribe( // Ensure this URL matches your backend endpoint
         response => {
           localStorage.setItem('token', response.token);
           const role = this.getUserRoleFromToken(response.token);
@@ -36,7 +36,7 @@ export class AuthService {
     });
   }
   register(user: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/api/register`, user, {
+    return this.http.post<any>(`${this.apiUrl}/register`, user, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
