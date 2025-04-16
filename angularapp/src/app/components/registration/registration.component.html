@@ -1,19 +1,13 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<<<<<<< HEAD
-  <!-- <app-navbar></app-navbar> -->
-  <div class="register-background">
-=======
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
 <div class="register-background">
->>>>>>> a8d3fc9f3ff8ceb8cc7feece964510303f448214
+
   <div class="registration-container">
     <h1>Registration</h1>
-    <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+    <form (ngSubmit)="onRegister()" #registerForm="ngForm"  >
       <div class="form-group">
         <label for="username">Username: <span class="required">*</span></label>
         <input id="username" type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required
-          minlength="3" maxlength="20" pattern="^[a-zA-Z][a-zA-Z\s]*$" placeholder="Enter your username" />
+          minlength="3" maxlength="20" pattern="^[a-zA-Z][a-zA-Z\s]*$" placeholder="Enter your username" class="input-field" />
         <div *ngIf="usernameField.invalid && usernameField.touched" class="error">
           <div *ngIf="usernameField.errors?.required">Username is required.</div>
           <div *ngIf="usernameField.errors?.minlength">Username must be at least 3 characters long.</div>
@@ -24,7 +18,7 @@
       <div class="form-group">
         <label for="email">Email: <span class="required">*</span></label>
         <input id="email" type="email" name="email" [(ngModel)]="email" #emailField="ngModel" required email
-          placeholder="Enter your email" />
+          placeholder="Enter your email" class="input-field" />
         <div *ngIf="emailField.invalid && emailField.touched" class="error">
           <div *ngIf="emailField.errors?.required">Email is required.</div>
           <div *ngIf="emailField.errors?.email">Please enter a valid email address.</div>
@@ -35,7 +29,7 @@
         <div class="password-container">
           <input [type]="passwordFieldType" id="password" name="password" [(ngModel)]="password"
             #passwordField="ngModel" required minlength="6"
-            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]+$" placeholder="Enter your password" />
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]+$" placeholder="Enter your password" class="input-field" />
           <i class="fa fa1" [ngClass]="passwordFieldType === 'password' ? 'fa-eye-slash' : 'fa-eye'"
             (click)="togglePasswordVisibility('password')"></i>
         </div>
@@ -51,7 +45,7 @@
         <div class="password-container">
           <input [type]="confirmPasswordFieldType" id="confirmPassword" name="confirmPassword"
             [(ngModel)]="confirmPassword" #confirmPasswordField="ngModel" required
-            placeholder="Confirm your password" />
+            placeholder="Confirm your password" class="input-field" />
           <i class="fa fa1" [ngClass]="confirmPasswordFieldType === 'password' ? 'fa-eye-slash' : 'fa-eye'"
             (click)="togglePasswordVisibility('confirmPassword')"></i>
         </div>
@@ -64,7 +58,7 @@
       <div class="form-group">
         <label for="mobileNumber">Mobile Number: <span class="required">*</span></label>
         <input id="mobileNumber" type="text" name="mobileNumber" [(ngModel)]="mobileNumber" #mobileNumberField="ngModel"
-          required pattern="^\d{10}$" placeholder="Enter your mobile number" />
+          required pattern="^\d{10}$" placeholder="Enter your mobile number" class="input-field" />
         <div *ngIf="mobileNumberField.invalid && mobileNumberField.touched" class="error">
           <div *ngIf="mobileNumberField.errors?.required">Mobile number is required.</div>
           <div *ngIf="mobileNumberField.errors?.pattern">Please enter a valid 10-digit mobile number.</div>
@@ -73,7 +67,7 @@
       <div class="form-group">
         <label for="role">Role: <span class="required">*</span></label>
         <select id="role" name="role" [(ngModel)]="userRole" #roleField="ngModel" required
-          placeholder="Select your role">
+          placeholder="Select your role" class="input-field">
           <option value="">Select a role</option>
           <option value="User">User</option>
           <option value="Admin">Admin</option>
@@ -82,8 +76,13 @@
           <div *ngIf="roleField.errors?.required">Role is required.</div>
         </div>
       </div>
-      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      <button type="submit" [disabled]="registerForm.invalid" class="submit-button">Register</button>
     </form>
     <p>Already have an account? <a href="/login">Login Here</a></p>
   </div>
+
+
+    <!-- <img src="https://images.unsplash.com/photo-1586137712370-9b450509c587?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlZ2lzdGVyJTIwaW1nJTIwZm9yJTIwY29va2luZyUyMHdoaXRlJTIwYmFjZ3JvdWpkfGVufDB8MXwwfHx8MA%3D%3D" alt="left-img" class="left-img"> -->
+  
 </div>
+

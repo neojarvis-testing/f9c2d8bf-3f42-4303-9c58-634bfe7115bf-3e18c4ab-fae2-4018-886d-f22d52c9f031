@@ -1,0 +1,105 @@
+.register-background {
+  /* background-color: #f4f4f4; */
+  padding: 10px;
+  /* width: 40%; */
+}
+
+.registration-container {
+  max-width: 400px;
+  margin: auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* width: 50%;
+  height: auto; */
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 8px;
+  
+}
+
+label {
+  display: block;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+.required {
+  color: red;
+}
+
+.input-field {
+  width: 90%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Arial', sans-serif;
+  transition: border-color 0.3s;
+  margin-bottom: 6px;
+}
+
+.input-field:focus {
+  border-color: #000;
+}
+
+.password-container {
+  position: relative;
+}
+
+.fa1 {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9em;
+  margin-top: -6px;
+  margin-bottom: 6px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 6px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 6px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin-top: 10px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
