@@ -1,12 +1,11 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="register-background container" style="max-width: 50%;">
  
-<app-navbar></app-navbar>
-<div class="register-background">
-  <div class="registration-container">
-    <h1>Registration</h1>
-    <form (ngSubmit)="onRegister()" #registerForm="ngForm">
-      <div class="form-group">
-        <label for="username">Username: <span class="required">*</span></label>
+  <div class="registration-container ">
+    <h1 class="text-center mb-4">Registration</h1>
+    <form (ngSubmit)="onRegister()" #registerForm="ngForm" class="row g-3 needs-validation" novalidate>
+      <div class="col-md-6">
+        <label for="username" class="form-label">Username: <span class="required">*</span></label>
         <input id="username" type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required
           minlength="3" maxlength="20" pattern="^[a-zA-Z][a-zA-Z\s]*$" placeholder="Enter your username" class="form-control" />
         <div *ngIf="usernameField.invalid && usernameField.touched" class="text-danger">

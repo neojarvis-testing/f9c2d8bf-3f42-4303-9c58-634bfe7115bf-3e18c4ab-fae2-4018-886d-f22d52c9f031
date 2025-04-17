@@ -1,52 +1,51 @@
-<nav class="navbar">
-    <div class="navbar-header">
-        <span class="navbar-brand">
-            <img class="logo" src="../../../assets/images/CookingHubNav1.jpg" />
-            <p class="brand-logo">Cooking Hub</p>
-        </span>
-    </div>
-    <ul class="nav-links">
-        <li class="admin-info"><span>Hello, {{ Username }}! Welcome back to your dashboard.</span></li>
-        <li><a routerLink="/home">Home</a></li>
-        <li class="dropdown" (click)="toggleDropdown($event)">
-            <!-- <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                    Cooking Class
-                </button>
-                <ul class="dropdown-menu dropdown-menu-lg-end">
-                  <li><button class="dropdown-item" type="button"><a routerLink="/adminaddclass">Add Class</a></button></li>
-                  <li><button class="dropdown-item" type="button"><a routerLink="/adminviewclass">View Class</a></button></li>
-                </ul>
-              </div> -->
-        
-                <!-- <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown button
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><button class="dropdown-item" routerLink="/adminaddclass">Add Class</button></li>
-                    <li><button class="dropdown-item" routerLink="/adminviewclass">View Class</button></li>
-                    
-                  </ul>
-                </div> -->
-
-                
-                <!-- <select  name="s1" id="s1" [(ngModel)]="">
-                    <option [value]="add">Add Class</option>
-                    <option [value]="view">View Class</option>
-                </select> -->
-               
+<nav class="navbar navbar-expand-lg navbar-light bg-light mx-3 my-1">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <span class="brand-logo">Cooking Hub</span>
+    </a>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-2">
+          <span class="nav-link">Hello, {{ Username }}! Welcome back to your dashboard.</span>
         </li>
-        <li><a routerLink="/adminviewappliedrequest">Class Requested</a></li>
-        <li><a routerLink="/adminviewfeedback">Feedbacks</a></li>
-        <li><button class="logout-button" (click)="logout()">Logout</button></li>
-    </ul>
-</nav>
-<div *ngIf="showLogoutModal" class="modal">
-    <div class="modal-content">
-        <p>Are you sure you want to log out?</p>
-        <button class="yes-logout-button" (click)="confirmLogout()">Yes, Logout</button>
-        <button (click)="cancelLogout()">Cancel</button>
+        <li class="nav-item mx-2">
+          <a routerLink="/home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item mx-2 dropdown">
+          <select class="form-select" name="s1" id="s1" [(ngModel)]="toggleSelect" (change)="toggleDropdown()">
+            <option value="default" selected>Cooking Class</option>
+            <option value="add">Add Class</option>
+            <option value="view">View Class</option>
+          </select>
+        </li>
+        <li class="nav-item mx-2">
+          <a routerLink="/adminviewappliedrequest" class="nav-link">Class Requested</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a routerLink="/adminviewfeedback" class="nav-link">Feedbacks</a>
+        </li>
+        <li class="nav-item mx-2">
+          <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+
+<div *ngIf="showLogoutModal" class="modal fade show d-block" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Logout Confirmation</h5>
+        <button type="button" class="btn-close" (click)="cancelLogout()"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to log out?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="confirmLogout()">Yes, Logout</button>
+       <button class="btn btn-secondary" (click)="cancelLogout()">Cancel</button>
+      </div>
+    </div>
+  </div>
 </div>
- 
