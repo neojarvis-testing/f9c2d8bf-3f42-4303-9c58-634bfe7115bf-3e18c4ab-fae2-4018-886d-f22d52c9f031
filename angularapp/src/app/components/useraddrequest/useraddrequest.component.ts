@@ -32,7 +32,7 @@ export class UseraddrequestComponent implements OnInit {
   }
   onSubmit(requestForm: any): void {
     if (!this.request.DietaryPreferences || !this.request.CookingGoals) {
-      requestForm.form.markAllAsTouched(); 
+      requestForm.form.markAllAsTouched();
       return;
     }
     console.log('Submitting request:', this.request);
@@ -43,8 +43,8 @@ export class UseraddrequestComponent implements OnInit {
         localStorage.removeItem('cookingClassId');
         this.showPopup = true;
         setTimeout(() => {
-          this.router.navigate(['/userviewappliedrequest']); 
-        }, 2000); 
+          this.router.navigate(['/userviewappliedrequest']);
+        }, 2000);
       },
       (error) => {
         console.error('Error submitting request:', error);
@@ -53,10 +53,9 @@ export class UseraddrequestComponent implements OnInit {
   }
   closePopup(): void {
     this.showPopup = false;
-    this.router.navigate(['/userviewappliedrequest']); 
+    this.router.navigate(['/userviewappliedrequest']);
   }
   goBack(): void {
-    this.router.navigate(['/userviewclass']); 
+    this.router.navigate(['/userviewclass']);
   }
 }
-
