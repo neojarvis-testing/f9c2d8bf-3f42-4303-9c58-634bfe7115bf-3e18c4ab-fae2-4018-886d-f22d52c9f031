@@ -51,4 +51,3 @@ export class UsernavComponent implements OnInit {
     this.showLogoutModal = false;
   }
 }
-

@@ -1,10 +1,10 @@
 <!-- <app-usernav></app-usernav> -->
 <div class="container">
   <h2>Available Classes</h2>
-  <input 
-    type="text" 
-    placeholder="Search by Class Name, Cuisine Type, or Location" 
-    [(ngModel)]="searchTerm" 
+  <input
+    type="text"
+    placeholder="Search by Class Name, Cuisine Type, or Location"
+    [(ngModel)]="searchTerm"
     class="search-bar"
     (input)="searchClasses()"
   />
@@ -37,8 +37,8 @@
         <td>{{ cookingClass.SkillLevel }}</td>
         <td>{{ cookingClass.SpecialRequirements }}</td>
         <td>
-          <button 
-            *ngIf="!isClassApplied(cookingClass.CookingClassId)" 
+          <button
+            *ngIf="!isClassApplied(cookingClass.CookingClassId)"
             (click)="applyForClass(cookingClass.CookingClassId)"
             class="apply-btn"
           >
@@ -55,4 +55,3 @@
     <button (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Next</button>
   </div>
 </div>
-

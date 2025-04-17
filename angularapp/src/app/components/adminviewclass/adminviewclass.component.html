@@ -40,7 +40,7 @@
                   </tr>
             </tbody>
       </table>
-
+ 
       <div class="pagination-controls" *ngIf="filteredClasses.length > itemsPerPage">
             <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
             <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
@@ -51,7 +51,7 @@
                   Oops! No records found.
             </div>
       </ng-template>
-
+ 
       <div *ngIf="showDeleteModal" class="modal">
             <div class="modal-content">
                   <span class="close" (click)="closeDeleteModal()">&times;</span>
@@ -60,7 +60,7 @@
                   <button (click)="closeDeleteModal()" class="btn-cancel">Cancel</button>
             </div>
       </div>
-
+ 
       <div *ngIf="showErrorModal" class="modal">
             <div class="modal-content">
                   <span class="close" (click)="closeErrorModal()">&times;</span>
@@ -69,3 +69,4 @@
             </div>
       </div>
 </div>
+ 

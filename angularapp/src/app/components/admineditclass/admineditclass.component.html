@@ -65,7 +65,7 @@
     <button type="submit" [disabled]="editCookingClassForm.invalid">Update</button>
     <button type="button" (click)="cancelUpdate()">Back</button>
 </form>
-
+ 
 <div *ngIf="showModal" class="modal">
     <div class="modal-content">
         <span class="close" (click)="closeModal()">&times;</span>
@@ -73,3 +73,4 @@
         <button class="ok-button" (click)="closeModal()">OK</button>
     </div>
 </div>
+ 
