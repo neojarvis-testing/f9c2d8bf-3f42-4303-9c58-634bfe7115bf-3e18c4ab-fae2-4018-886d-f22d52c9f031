@@ -9,11 +9,33 @@
         <li class="admin-info"><span>Hello, {{ Username }}! Welcome back to your dashboard.</span></li>
         <li><a routerLink="/home">Home</a></li>
         <li class="dropdown" (click)="toggleDropdown($event)">
-            <a class="dropdown-toggle" href="#">Cooking Class<i class="fas fa-chevron-down arrow-icon"></i></a>
-            <ul class="dropdown-menu">
-                <li><a routerLink="/adminaddclass">Add Class</a></li>
-                <li><a routerLink="/adminviewclass">View Class</a></li>
-            </ul>
+            <!-- <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                    Cooking Class
+                </button>
+                <ul class="dropdown-menu dropdown-menu-lg-end">
+                  <li><button class="dropdown-item" type="button"><a routerLink="/adminaddclass">Add Class</a></button></li>
+                  <li><button class="dropdown-item" type="button"><a routerLink="/adminviewclass">View Class</a></button></li>
+                </ul>
+              </div> -->
+        
+                <!-- <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><button class="dropdown-item" routerLink="/adminaddclass">Add Class</button></li>
+                    <li><button class="dropdown-item" routerLink="/adminviewclass">View Class</button></li>
+                    
+                  </ul>
+                </div> -->
+
+                
+                <select  name="s1" id="s1" [(ngModel)]="">
+                    <option [value]="add">Add Class</option>
+                    <option [value]="view">View Class</option>
+                </select>
+               
         </li>
         <li><a routerLink="/adminviewappliedrequest">Class Requested</a></li>
         <li><a routerLink="/adminviewfeedback">Feedbacks</a></li>
