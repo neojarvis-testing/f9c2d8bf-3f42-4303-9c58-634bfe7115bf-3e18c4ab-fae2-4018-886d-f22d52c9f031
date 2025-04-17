@@ -11,8 +11,14 @@ export class AdminnavComponent implements OnInit {
   isAdmin: boolean = true;
   Username: string = '';
   role: string = this.isAdmin ? 'Admin' : 'User';
+<<<<<<< HEAD
   userId: number;
   showLogoutModal: boolean = false;
+=======
+  userId: number; 
+  showLogoutModal: boolean = false; 
+  toggleSelect : string = "";
+>>>>>>> 5cc0c14b9b8cc29ef4716727f9baf57637ec1866
   constructor(private authService: AuthService, private router: Router, private feedbackService: FeedbackService) {}
   ngOnInit(): void {
     this.userId = parseInt(localStorage.getItem('userId')!, 10);
