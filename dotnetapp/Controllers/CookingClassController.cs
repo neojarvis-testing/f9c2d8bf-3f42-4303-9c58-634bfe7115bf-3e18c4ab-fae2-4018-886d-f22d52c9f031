@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-
+ 
 namespace dotnetapp.Controllers
 {
     [ApiController]
@@ -17,7 +17,7 @@ namespace dotnetapp.Controllers
         {
             _cookingClassService = cookingClassService;
         }
-        
+       
         [HttpGet]
         [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<IEnumerable<CookingClass>>> GetAllCookingClasses()

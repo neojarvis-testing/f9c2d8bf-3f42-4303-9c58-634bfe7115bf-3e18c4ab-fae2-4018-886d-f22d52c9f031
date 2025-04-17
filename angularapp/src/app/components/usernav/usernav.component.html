@@ -1,43 +1,42 @@
 <nav class="navbar">
   <div class="navbar-header">
-    <span class="navbar-brand">
-      <img class="logo" src="../../../assets/images/CookingHubNav1.jpg" alt="Cooking Hub Logo" />
-      <p class="brand-logo">Cooking Hub</p>
-    </span>
+    <a href="#" class="navbar-brand">
+      <img src="logo.png" alt="Logo" class="logo">
+      <span class="brand-logo">Cooking Hub</span>
+    </a>
   </div>
-  <div class="navbar-links-container">
-    <ul class="navbar-links">
-      <li><span class="demo-user-label">Hello, {{ Username }}! Welcome back to your dashboard.</span></li>
-      <li><a [routerLink]="['/home']">Home</a></li>
-      <li><a [routerLink]="['/cooking-imp']">Importance of Cooking</a></li>
-      <li><a [routerLink]="['/userviewclass']">Cooking Classes</a></li>
-      <li><a [routerLink]="['/userviewappliedrequest']">Applied Classes</a></li>
-      <li class="dropdown">
-        <span class="dropbtn">Feedback</span>
-        <div class="dropdown-content">
-          <a [routerLink]="['/useraddfeedback']">Post Feedback</a>
-          <a [routerLink]="['/userviewfeedback']">My Feedbacks</a>
-        </div>
-      </li>
-      <li>
-        <button class="logout-button" (click)="logout()">Logout</button>
-      </li>
-    </ul>
-    <div class="navbar-user-info">
-      <span>{{user.Username}}</span>
-      <span>{{user.UserRole}}</span>
-    </div>
+  <div class="navigation">
+    <a href="/home" class="nav-link">Home</a>
+    <a href="/cooking-imp" class="nav-link">Importance of Cooking</a>
+    <a href="/userviewclass" class="nav-link">Cooking Classes</a>
+    <a href="/userviewappliedrequest" class="nav-link">Applied Classes</a>
+    <select name="s1" id="s1" class="nav-link" [(ngModel)]="toggleSelect" (change)="toggleDropdown()">
+      <option value="default" selected>Post Feedback</option>
+      <option value="add">Add Class</option>
+      <option value="view">My Feedbacks</option>
+    </select>
+    <button class="nav-link" style="border: 1px solid var(--border-color); color: var(--border-color);" (click)="showLogoutModal = true">Logout</button>
   </div>
 </nav>
-<div *ngIf="showLogoutModal" class="modal">
-  <div class="modal-content">
-    <p>Are you sure you want to log out?</p>
-    <button class="yes-logout-button" (click)="confirmLogout()">Yes, Logout</button>
-    <button (click)="cancelLogout()">Cancel</button>
+
+<div *ngIf="showLogoutModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center;">
+  <div style="background: white; padding: 20px; border-radius: 5px; width: 300px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h5 style="margin: 0;">Logout Confirmation</h5>
+      <button type="button" style="border: none; background: none;" (click)="showLogoutModal = false">✖</button>
+    </div>
+    <div style="margin: 20px 0;">
+      <p>Are you sure you want to log out?</p>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <button style="background: red; color: white; padding: 5px 10px; border: none;" (click)="confirmLogout()">Yes, Logout</button>
+      <button style="background: grey; color: white; padding: 5px 10px; border: none;" (click)="showLogoutModal = false">Cancel</button>
+    </div>
   </div>
 </div>
+
 <ng-template #noRecords>
-  <div class="no-records">
+  <div style="text-align: center; margin-top: 20px; color: var(--font-color);">
     Oops! No records Found
   </div>
 </ng-template>

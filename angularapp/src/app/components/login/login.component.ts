@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
-
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,13 +18,13 @@ export class LoginComponent {
         localStorage.setItem('token', response.token);
         const role = this.authService.getUserRoleFromToken(response.token);
         localStorage.setItem('userRole', role);
-  
-
+ 
+ 
         if (role) {
           if (role.toLowerCase() === 'admin') {
-            this.router.navigate(['/home']); 
+            this.router.navigate(['/home']);
           } else if (role.toLowerCase() === 'user') {
-            this.router.navigate(['/home']); 
+            this.router.navigate(['/home']);
           }
           Swal.fire({
             title: 'Success!',
@@ -33,7 +33,7 @@ export class LoginComponent {
             confirmButtonText: 'OK'
           });
         } else {
-          this.router.navigate(['/error']); 
+          this.router.navigate(['/error']);
         }
       },
       error: () => {
@@ -46,10 +46,8 @@ export class LoginComponent {
       },
     });
   }
-  
+ 
   togglePasswordVisibility(): void {
     this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 }
-
-

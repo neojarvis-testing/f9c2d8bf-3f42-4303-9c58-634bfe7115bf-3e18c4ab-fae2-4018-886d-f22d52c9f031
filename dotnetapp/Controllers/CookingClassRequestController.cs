@@ -15,12 +15,12 @@ namespace dotnetapp.Controllers
     public class CookingClassRequestController : ControllerBase
     {
         private readonly CookingClassRequestService _cookingClassRequestService;
-
+ 
         public CookingClassRequestController(CookingClassRequestService cookingClassRequestService)
         {
             _cookingClassRequestService = cookingClassRequestService;
         }
-
+ 
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<CookingClassRequest>>> GetAllCokingClassRequests()
@@ -37,7 +37,7 @@ namespace dotnetapp.Controllers
               return StatusCode(500, new { Message= $"An error was occured while getting all the requests: {ex.Message}" });
             }
         }
-
+ 
         [HttpGet("user/{userId}")]
         [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<CookingClassRequest>>> GetCookingClassRequestsByUserId(int userId)
@@ -70,7 +70,7 @@ namespace dotnetapp.Controllers
                 return StatusCode(500, new {Message= $"An error was occured while adding the requests: {ex.Message}" });
             }
         }
-
+ 
         [HttpPut("{requestId}")]
         [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult> UpdateCookingClassRequest(int requestId, [FromBody] CookingClassRequest request)
@@ -89,7 +89,7 @@ namespace dotnetapp.Controllers
                 return StatusCode(500, new { Message= $"An error was occured while updating the requests: {ex.Message}" });
             }
         }
-
+ 
         [HttpDelete("{requestId}")]
         [Authorize(Roles = "User")]
         public async Task<ActionResult> DeleteCookingClassRequest(int requestId)
@@ -108,6 +108,6 @@ namespace dotnetapp.Controllers
                  return StatusCode(500, new { Message= $"An error was occured while deleting the requests: {ex.Message}" });
             }
         }
-
+ 
     }
 }

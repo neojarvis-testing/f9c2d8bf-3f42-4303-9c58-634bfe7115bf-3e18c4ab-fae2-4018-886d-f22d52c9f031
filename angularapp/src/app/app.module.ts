@@ -22,7 +22,7 @@ import { UserviewclassComponent } from './components/userviewclass/userviewclass
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,3 +56,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

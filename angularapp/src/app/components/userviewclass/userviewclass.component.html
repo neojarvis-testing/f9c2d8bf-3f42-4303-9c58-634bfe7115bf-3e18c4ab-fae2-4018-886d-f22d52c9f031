@@ -1,58 +1,59 @@
-<app-usernav></app-usernav>
-<div class="container">
-  <h2>Available Classes</h2>
-  <input 
-    type="text" 
-    placeholder="Search by Class Name, Cuisine Type, or Location" 
-    [(ngModel)]="searchTerm" 
-    class="search-bar"
+<!-- <app-usernav></app-usernav> -->
+<div class="container mt-5">
+  <h2 class="mb-4">Available Classes</h2>
+  <input
+    type="text"
+    placeholder="Search by Class Name, Cuisine Type, or Location"
+    [(ngModel)]="searchTerm"
+    class="form-control mb-3"
     (input)="searchClasses()"
   />
-  <table class="classes-table">
-    <thead>
-      <tr>
-        <th>S.No</th>
-        <th>Class Name</th>
-        <th>Cuisine Type</th>
-        <th>Chef Name</th>
-        <th>Location</th>
-        <th>Duration (Hours)</th>
-        <th>Fee</th>
-        <th>Ingredients Provided</th>
-        <th>Skill Level</th>
-        <th>Requirements</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cookingClass of filteredClasses; let i = index">
-        <td>{{ (currentPage - 1) * classesPerPage + i + 1 }}</td>
-        <td>{{ cookingClass.ClassName }}</td>
-        <td>{{ cookingClass.CuisineType }}</td>
-        <td>{{ cookingClass.ChefName }}</td>
-        <td>{{ cookingClass.Location }}</td>
-        <td>{{ cookingClass.DurationInHours }}</td>
-        <td>{{ cookingClass.Fee }}</td>
-        <td>{{ cookingClass.IngredientsProvided }}</td>
-        <td>{{ cookingClass.SkillLevel }}</td>
-        <td>{{ cookingClass.SpecialRequirements }}</td>
-        <td>
-          <button 
-            *ngIf="!isClassApplied(cookingClass.CookingClassId)" 
-            (click)="applyForClass(cookingClass.CookingClassId)"
-            class="apply-btn"
-          >
-            Apply
-          </button>
-          <span *ngIf="isClassApplied(cookingClass.CookingClassId)" class="applied-status">Applied</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="pagination">
-    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>S.No</th>
+          <th>Class Name</th>
+          <th>Cuisine Type</th>
+          <th>Chef Name</th>
+          <th>Location</th>
+          <th>Duration (Hours)</th>
+          <th>Fee</th>
+          <th>Ingredients Provided</th>
+          <th>Skill Level</th>
+          <th>Requirements</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cookingClass of filteredClasses; let i = index">
+          <td>{{ (currentPage - 1) * classesPerPage + i + 1 }}</td>
+          <td>{{ cookingClass.ClassName }}</td>
+          <td>{{ cookingClass.CuisineType }}</td>
+          <td>{{ cookingClass.ChefName }}</td>
+          <td>{{ cookingClass.Location }}</td>
+          <td>{{ cookingClass.DurationInHours }}</td>
+          <td>{{ cookingClass.Fee }}</td>
+          <td>{{ cookingClass.IngredientsProvided }}</td>
+          <td>{{ cookingClass.SkillLevel }}</td>
+          <td>{{ cookingClass.SpecialRequirements }}</td>
+          <td>
+            <button
+              *ngIf="!isClassApplied(cookingClass.CookingClassId)"
+              (click)="applyForClass(cookingClass.CookingClassId)"
+              class="btn btn-primary"
+            >
+              Apply
+            </button>
+            <span *ngIf="isClassApplied(cookingClass.CookingClassId)" class="badge badge-success">Applied</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex justify-content-between mt-3">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-secondary">Previous</button>
     <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
-    <button (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Next</button>
+    <button (click)="nextPage()" [disabled]="currentPage === getTotalPages()" class="btn btn-secondary">Next</button>
   </div>
 </div>
-

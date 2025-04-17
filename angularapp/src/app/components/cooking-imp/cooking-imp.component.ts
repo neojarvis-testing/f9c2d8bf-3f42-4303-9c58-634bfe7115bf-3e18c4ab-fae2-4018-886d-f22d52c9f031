@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./cooking-imp.component.css']
 })
 export class CookingImpComponent implements OnInit {
-  isAdmin: boolean = false; 
-  Username: string = ''; 
+  isAdmin: boolean = false;
+  Username: string = '';
   role: string = this.isAdmin ? 'Admin' : 'User';
-  userId: number; 
+  userId: number;
   showDropdown = false;
   constructor(private authService: AuthService, private feedbackService: FeedbackService, private router: Router) {}
   ngOnInit(): void {
-    this.userId = parseInt(localStorage.getItem('userId')!, 10); 
+    this.userId = parseInt(localStorage.getItem('userId')!, 10);
     this.Username = localStorage.getItem('userName');
   }
   confirmLogout(): void {
