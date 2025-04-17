@@ -1,23 +1,58 @@
-<div>
-  <ng-container *ngIf="userRole === 'Admin'; else userNav">
-    <app-adminnav></app-adminnav>
-  </ng-container>
-  <ng-template #userNav>
-    <app-usernav></app-usernav>
-  </ng-template>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooking Hub</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .admin-image {
+      background: url('your-image-url.jpg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
+    }
+    .contenthome {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ng-container *ngIf="userRole === 'Admin'; else userNav">
+      <app-adminnav></app-adminnav>
+    </ng-container>
+    <ng-template #userNav>
+      <app-usernav></app-usernav>
+    </ng-template>
 
-  <div class="admin-image">
-    <div class="contenthome">
-      <h1>Cooking Hub</h1>
-      <p>
-        Cooking Hub is an all-in-one platform that connects users with diverse culinary classes tailored to
-        various skill levels and interests. The app offers a wide range of cooking options, from mastering basic
-        cooking techniques and learning international cuisines to specialized classes like baking, vegan cooking,
-        and gourmet recipes. Each class is led by professional chefs and includes comprehensive descriptions,
-        skill prerequisites, and easy enrollment options. Cooking Hub aims to make culinary arts accessible and
-        enjoyable, providing users with personalized guidance to enhance their cooking skills and explore their passion
-        for food.
-      </p>
+    <div class="admin-image">
+      <div class="contenthome text-center">
+        <h1>Cooking Hub</h1>
+        <p>
+          Cooking Hub is an all-in-one platform that connects users with diverse culinary classes tailored to
+          various skill levels and interests. The app offers a wide range of cooking options, from mastering basic
+          cooking techniques and learning international cuisines to specialized classes like baking, vegan cooking,
+          and gourmet recipes. Each class is led by professional chefs and includes comprehensive descriptions,
+          skill prerequisites, and easy enrollment options. Cooking Hub aims to make culinary arts accessible and
+          enjoyable, providing users with personalized guidance to enhance their cooking skills and explore their passion
+          for food.
+        </p>
+      </div>
     </div>
   </div>
-</div>
+</body>
+</html>
