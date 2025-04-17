@@ -1,30 +1,3 @@
-<!-- <app-navbar></app-navbar>
-<div class="login-background">
-  <div class="login-container">
-    <div class="form-header">
-      <h1>Welcome Back!</h1>
-      <p>Log in to access your account and explore new features.</p>
-    </div>
-    <form  (ngSubmit)="onLogin()" #loginForm="ngForm">
-      <div class="form-group">
-        <label  for="email">Email:</label>
-        <input type="email" id="email" name="email"  [(ngModel)]="credentials.email" required
-          placeholder="Enter your email" />
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <div class="password-container">
-          <input [type]="passwordFieldType" id="password" name="password"  [(ngModel)]="credentials.password" required
-            placeholder="Enter your password" />
-          <i class="fa" [ngClass]="passwordFieldType === 'password' ? 'fa-eye' : 'fa-eye-slash'"
-            (click)="togglePasswordVisibility()"></i>
-        </div>
-      </div>
-      <button type="submit" [disabled]="loginForm.invalid">Login</button>
-    </form>
-    <p class="signup-link">Don't have an account? <a routerLink="/register">Register</a></p>
-  </div>
-</div>  -->
 <app-navbar></app-navbar>
 <div class="container mt-5" style="max-width: 50%;">
   <div class="card">
