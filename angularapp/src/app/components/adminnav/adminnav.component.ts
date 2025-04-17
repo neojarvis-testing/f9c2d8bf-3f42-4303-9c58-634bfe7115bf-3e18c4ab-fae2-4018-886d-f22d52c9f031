@@ -31,11 +31,20 @@ export class AdminnavComponent implements OnInit {
   cancelLogout(): void {
     this.showLogoutModal = false; 
   }
-  toggleDropdown(event: Event): void {
-    event.preventDefault();
-    const dropdown = (event.currentTarget as HTMLElement).closest('.dropdown');
-    if (dropdown) {
-      dropdown.classList.toggle('show');
+  // toggleDropdown(event: Event): void {
+  //   event.preventDefault();
+  //   const dropdown = (event.currentTarget as HTMLElement).closest('.dropdown');
+  //   if (dropdown) {
+  //     dropdown.classList.toggle('show');
+  //   }
+  // }
+  toggleDropdown()
+  {
+    if (this.toggleSelect === "add") {
+      this.router.navigate(['/adminaddclass']);
+    }else if (this.toggleSelect === "view"){
+      this.router.navigate(['/adminviewclass']);
     }
   }
+  
 }
