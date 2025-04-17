@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
  
 <app-navbar></app-navbar>
@@ -8,16 +7,6 @@
     <form (ngSubmit)="onRegister()" #registerForm="ngForm">
       <div class="form-group">
         <label for="username">Username: <span class="required">*</span></label>
-=======
-<app-navbar ></app-navbar>
-<div class="register-background container" style="max-width: 50%;">
-
-  <div class="registration-container ">
-    <h1 class="text-center mb-4">Registration</h1>
-    <form (ngSubmit)="onRegister()" #registerForm="ngForm" class="row g-3 needs-validation" novalidate>
-      <div class="col-md-6">
-        <label for="username" class="form-label">Username: <span class="required">*</span></label>
->>>>>>> 5cc0c14b9b8cc29ef4716727f9baf57637ec1866
         <input id="username" type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required
           minlength="3" maxlength="20" pattern="^[a-zA-Z][a-zA-Z\s]*$" placeholder="Enter your username" class="form-control" />
         <div *ngIf="usernameField.invalid && usernameField.touched" class="text-danger">
@@ -52,16 +41,9 @@
           <div *ngIf="passwordField.errors?.pattern">Password must contain a combination of letters and numbers.</div>
         </div>
       </div>
-<<<<<<< HEAD
- 
-      <div class="form-group">
-        <label for="confirmPassword">Confirm Password: <span class="required">*</span></label>
-        <div class="password-container">
-=======
       <div class="col-md-6">
         <label for="confirmPassword" class="form-label">Confirm Password: <span class="required">*</span></label>
         <div class="input-group has-validation">
->>>>>>> 5cc0c14b9b8cc29ef4716727f9baf57637ec1866
           <input [type]="confirmPasswordFieldType" id="confirmPassword" name="confirmPassword"
             [(ngModel)]="confirmPassword" #confirmPasswordField="ngModel" required
             placeholder="Confirm your password" class="form-control" />
@@ -74,14 +56,8 @@
           <div *ngIf="password !== confirmPassword && confirmPasswordField.touched">Passwords do not match.</div>
         </div>
       </div>
-<<<<<<< HEAD
- 
-      <div class="form-group">
-        <label for="mobileNumber">Mobile Number: <span class="required">*</span></label>
-=======
       <div class="col-md-6">
         <label for="mobileNumber" class="form-label">Mobile Number: <span class="required">*</span></label>
->>>>>>> 5cc0c14b9b8cc29ef4716727f9baf57637ec1866
         <input id="mobileNumber" type="text" name="mobileNumber" [(ngModel)]="mobileNumber" #mobileNumberField="ngModel"
           required pattern="^\d{10}$" placeholder="Enter your mobile number" class="form-control" />
         <div *ngIf="mobileNumberField.invalid && mobileNumberField.touched" class="text-danger">
