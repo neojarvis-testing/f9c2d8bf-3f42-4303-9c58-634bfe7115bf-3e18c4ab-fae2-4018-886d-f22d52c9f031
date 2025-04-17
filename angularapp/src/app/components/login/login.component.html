@@ -1,27 +1,39 @@
-<app-navbar></app-navbar>
-<div class="login-background">
-  <div class="login-container">
-    <div class="form-header">
-      <h1>Welcome Back!</h1>
-      <p>Log in to access your account and explore new features.</p>
-    </div>
-    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="credentials.email" required
-          placeholder="Enter your email" />
+
+<div class="container mt-5" style="max-width: 50%;">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-header text-center mb-4">
+        <h1>Welcome Back!</h1>
+        <p>Log in to access your account and explore new features.</p>
       </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <div class="password-container">
-          <input [type]="passwordFieldType" id="password" name="password" [(ngModel)]="credentials.password" required
-            placeholder="Enter your password" />
-          <i class="fa" [ngClass]="passwordFieldType === 'password' ? 'fa-eye' : 'fa-eye-slash'"
-            (click)="togglePasswordVisibility()"></i>
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" name="email" [(ngModel)]="credentials.email" required
+            placeholder="Enter your email" class="form-control" />
+          <div *ngIf="loginForm.controls.email?.invalid && loginForm.controls.email?.touched" class="text-danger">
+            <div *ngIf="loginForm.controls.email?.errors?.required">Email is required.</div>
+            <div *ngIf="loginForm.controls.email?.errors?.email">Please enter a valid email address.</div>
+          </div>
         </div>
-      </div>
-      <button type="submit" [disabled]="loginForm.invalid">Login</button>
-    </form>
-    <p class="signup-link">Don't have an account? <a routerLink="/register">Register</a></p>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password:</label>
+          <div class="input-group">
+            <input [type]="passwordFieldType" id="password" name="password" [(ngModel)]="credentials.password" required
+              placeholder="Enter your password" class="form-control" />
+            <span class="input-group-text" (click)="togglePasswordVisibility()">
+              <i class="fa" [ngClass]="passwordFieldType === 'password' ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </span>
+          </div>
+          <div *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched" class="text-danger mt-1">
+            <div *ngIf="loginForm.controls.password?.errors?.required">Password is required.</div>
+          </div>
+        </div>
+        <div class="d-grid">
+          <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+      <p class="text-center mt-3">Don't have an account? <a routerLink="/register">Register</a></p>
+    </div>
   </div>
 </div>

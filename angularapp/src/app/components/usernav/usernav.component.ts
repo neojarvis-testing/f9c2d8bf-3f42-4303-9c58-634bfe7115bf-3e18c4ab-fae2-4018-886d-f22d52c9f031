@@ -9,6 +9,7 @@ import { CookingClass } from 'src/app/models/cooking-class.model';
   templateUrl: './usernav.component.html',
   styleUrls: ['./usernav.component.css']
 })
+
 export class UsernavComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService, private cookingClassService: CookingClassService) { }
   user: User = {
@@ -19,6 +20,7 @@ export class UsernavComponent implements OnInit {
     MobileNumber: '',
     UserRole: ''
   };
+  toggleSelect : string = "";
   classes: CookingClass[] = [];
   showClasses: boolean = false;
   showLogoutModal: boolean = false;
@@ -50,5 +52,12 @@ export class UsernavComponent implements OnInit {
   cancelLogout() {
     this.showLogoutModal = false;
   }
+  toggleDropdown()
+  {
+    if (this.toggleSelect === "add") {
+      this.router.navigate(['/useraddfeedback']);
+    }else if (this.toggleSelect === "view"){
+      this.router.navigate(['/userviewfeedback']);
+    }
+  }
 }
-

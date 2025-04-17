@@ -1,4 +1,39 @@
-<app-usernav></app-usernav>
+<!-- <nav class="navbar">
+    <div class="navbar-header">
+        <span class="navbar-brand">
+            <img class="logo" src="../../../assets/images/CookingHubNav1.jpg" alt="Logo" />
+            <p class="brand-logo">Cooking Hub</p>
+        </span>
+    </div>
+    <ul class="navbar-links">
+        <li><a [routerLink]="['/home']">Home</a></li>
+        <li><a [routerLink]="['/cooking-imp']">Importance of Cooking</a></li>
+        <li><a [routerLink]="['/userviewclass']">Cooking Classes</a></li>
+        <li><a [routerLink]="['/userviewappliedrequest']">Applied Classes</a></li>
+        <div class="dropdown">
+            <span class="dropbtn" (click)="toggleDropdown($event)">Feedback</span>
+            <div class="dropdown-content" [ngClass]="{'show': showDropdown}">
+                <a [routerLink]="['/useraddfeedback']">Post Feedback</a>
+                <a [routerLink]="['/userviewfeedback']">My Feedbacks</a>
+            </div>
+        </div>
+        <li>
+            <button class="logout-btn" (click)="confirmLogout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </li>
+    </ul>
+</nav>
+ 
+<div id="logoutModal" class="modal">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <p>Are you sure you want to log out?</p>
+        <button class="confirm-btn" (click)="logout()">Yes, Logout</button>
+        <button class="cancel-btn" (click)="closeModal()">Cancel</button>
+    </div>
+</div> -->
+<!-- <app-usernav></app-usernav> -->
 <div class="container">
     <h2>The Importance of Cooking</h2>
     <h3>Why Cooking Matters?</h3>
@@ -30,7 +65,7 @@
         plan and prepare meals. Additionally, cooking can improve your understanding of nutrition and healthy eating,
         empowering you to make better food choices. Overall, developing cooking skills not only enriches your culinary
         repertoire but also contributes to your overall well-being and self-sufficiency.</p>
-
+ 
     <h3>Cultural Connection</h3>
     <p>Cooking plays a significant role in connecting people to their cultural heritage and traditions. It serves as a
         medium through which cultural values, customs, and history are passed down from one generation to the next. Each
