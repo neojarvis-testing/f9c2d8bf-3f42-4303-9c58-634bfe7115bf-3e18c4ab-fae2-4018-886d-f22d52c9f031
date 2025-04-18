@@ -1,5 +1,5 @@
 <!-- <app-usernav></app-usernav> -->
-<div class="view-feedback">
+<div class="view-feedback" style="margin-top: 10%;" >
   <div class="container">
     <h1>My Feedback</h1>
     <div class="sub-cont">
@@ -37,10 +37,10 @@
         </div>
       </div>
     </div>
-    <div *ngIf="showLogoutModal" class="modal">
-      <div class="modal-content">
-        <h2 class="confirm-delete">Confirm Logout</h2>
-        <p class="sure-delete">Are you sure you want to logout?</p>
+    <div *ngIf="showLogoutModal" >
+      <div >
+        <h2 >Confirm Logout</h2>
+        <p >Are you sure you want to logout?</p>
         <button (click)="confirmLogout()" class="btn btn-danger logout-btn">Yes, Logout</button>
         <button (click)="cancelLogout()" class="btn btn-secondary">Cancel</button>
       </div>

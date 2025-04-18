@@ -59,21 +59,32 @@
       </tr>
     </tbody>
   </table>
-
+ 
   <div class="d-flex justify-content-between align-items-center mt-3" *ngIf="filteredRequests.length > itemsPerPage">
     <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-primary">Previous</button>
     <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
     <button (click)="nextPage()" [disabled]="currentPage === getTotalPages()" class="btn btn-primary">Next</button>
   </div>
 </div>
-
+ 
 <div class="modal" *ngIf="showModal">
-    <div class="modal-overlay" (click)="closeModal()"></div>
-    <div class="modal-content">
-        <span class="close-btn" (click)="closeModal()">&times;</span>
-        <h3>Request Details</h3>
-        <p><strong>Mobile Number:</strong> {{ selectedRequest?.User.MobileNumber }}</p>
-        <p><strong>Skill Level:</strong> {{ selectedRequest?.CookingClass.SkillLevel }}</p>
-        <p><strong>Requirements:</strong> {{ selectedRequest?.CookingClass.SpecialRequirements }}</p>
-      </div>
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-content">
+        <span class="close-btn" (click)="closeModal()">&times;</span>
+        <h3>Request Details</h3>
+        <p><strong>Mobile Number:</strong> {{ selectedRequest?.User.MobileNumber }}</p>
+        <p><strong>Skill Level:</strong> {{ selectedRequest?.CookingClass.SkillLevel }}</p>
+        <p><strong>Requirements:</strong> {{ selectedRequest?.CookingClass.SpecialRequirements }}</p>
+    </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Featured
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
 </div>
