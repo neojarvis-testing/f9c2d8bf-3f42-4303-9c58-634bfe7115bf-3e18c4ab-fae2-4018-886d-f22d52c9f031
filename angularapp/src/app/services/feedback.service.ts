@@ -27,12 +27,12 @@ export class FeedbackService {
       catchError(this.handleError)
     );
   }
-
-  getUsernameByUserId(userId: number): Observable<object> {
-    return this.http.get(`${this.apiUrl}/feedback/user/${userId}`, { headers: this.getHeaders() }).pipe(
+  
+  getUsernameByUserId(userId: number): Observable<string> {
+    return this.http.get<{ username: string }>(`${this.apiUrl}/feedback/user/${userId}`, { headers: this.getHeaders() }).pipe(
       map(response => {
         console.log(`Full response for userId ${userId}: `, response);
-        return response;
+        return response.username;
       }),
       catchError(error => {
         console.error('Fetch username error:', {

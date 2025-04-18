@@ -46,7 +46,7 @@ export class AdminviewfeedbackComponent implements OnInit {
       this.feedbackService.getUsernameByUserId(feedback.UserId).subscribe(
         username => {
           console.log(`Username for user ID ${feedback.UserId} is: ${username}`); // Log the username here
-          //this.feedbackUsernames[feedback.UserId] = username;
+          this.feedbackUsernames[feedback.UserId] = username;
         },
         error => {
           console.error('Error fetching username:', error);
