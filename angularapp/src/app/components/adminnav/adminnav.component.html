@@ -6,18 +6,18 @@
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
         <li class="nav-item mx-2">
-          <span class="nav-link">Hello, {{ Username }}! Welcome back to your dashboard.</span>
+          <span class="nav-link">Hello, {{ Username }}! Welcome back!</span>
         </li>
         <li class="nav-item mx-2">
           <a routerLink="/home" class="nav-link">Home</a>
         </li>
         <li class="nav-item mx-2 dropdown">
-          <select class="form-select" name="s1" id="s1" [(ngModel)]="toggleSelect" (change)="toggleDropdown()">
+          <select class="form-select" name="s1" id="s1" [(ngModel)]="toggleSelect" (ngModelChange)="onSelectChange($event)">
             <option value="default" selected>Cooking Class</option>
             <option value="add">Add Class</option>
             <option value="view">View Class</option>
           </select>
-        </li>
+        </li>        
         <li class="nav-item mx-2">
           <a routerLink="/adminviewappliedrequest" class="nav-link">Class Requested</a>
         </li>

@@ -47,12 +47,12 @@ h1 {
     width: 450px;
     height: 450px;
     /* clip-path: path('M 200 100 C 150 50, 50 50, 10 200 S 150 350, 200 300 S 350 350, 300 200 S 350 50, 200 100'); */
-    object-fit: cover; /* Ensures the image covers the entire shape */
-    /* overflow-wrap:; */
+    object-fit: contain; /* Ensures the image covers the entire shape */
+    overflow-wrap:inherit;
 }
 #img-2 {
-    width: 450px;
-    height: 450px;
+    width: 400px;
+    height: 400px;
     /* clip-path: path('M 200 100 C 150 50, 50 50, 10 200 S 150 350, 200 300 S 350 350, 300 200 S 350 50, 200 100'); */
     object-fit: fill; /* Ensures the image covers the entire shape */
     /* overflow-wrap:; */
