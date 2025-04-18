@@ -1,0 +1,54 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.custom-thead th {
+  border: 2px solid #6c6b6b; /* Solid border for table head */
+  background-color: #696c6f; /* Background color for table head */
+  color: #fff; /* Text color for table head */
+  text-align: center; /* Center align text in table head */
+}
+
+.custom-td {
+  border: 1px #000; /* Solid border for table columns */
+  text-align: center; /* Center align text in table columns */
+}
+
+.btn-info {
+  background-color: #b2dfe6; /* Custom color for info button */
+  border-color: #17a2b8; /* Border color for info button */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Custom color for primary button */
+  border-color: #007bff; /* Border color for primary button */
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Custom color for danger button */
+  border-color: #dc3545; /* Border color for danger button */
+}
+
+.modal-content {
+  border: 2px solid #000; /* Solid border for modal */
+}
+
+.modal-header, .modal-footer {
+  display: flex;
+  justify-content: center; /* Center align modal header and footer */
+}
+
+.modal-title {
+  margin: auto;
+}
+
+.alert-warning {
+  background-color: #ffeeba; /* Custom color for warning alert */
+  color: #856404; /* Text color for warning alert */
+  border-color: #ffc107; /* Border color for warning alert */
+}
