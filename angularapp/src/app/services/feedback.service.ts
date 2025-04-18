@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class FeedbackService {
-  private apiUrl = environment.apiUrl;
- 
+  public apiUrl= environment.apiUrl;
+
   constructor(private http: HttpClient, private authService: AuthService) {}
   private getHeaders(): HttpHeaders {
     const token = this.authService.getToken();

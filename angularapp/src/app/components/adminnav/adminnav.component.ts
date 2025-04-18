@@ -117,18 +117,16 @@ export class AdminnavComponent implements OnInit {
   role: string = this.isAdmin ? 'Admin' : 'User';
   userId: number; 
   showLogoutModal: boolean = false; 
-  toggleSelect: string = "default";
-
+  toggleSelect:string ="default";
   constructor(private authService: AuthService, private router: Router, private feedbackService: FeedbackService) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        if (this.router.url !== '/adminaddclass' && this.router.url !== '/adminviewclass') {
-          this.toggleSelect = 'default';
-        }
+    this.router.events.subscribe(event=>{
+      if(event instanceof NavigationEnd){
+      if(this.router.url!=='/adminaddclass' && this.router.url!=='/adminviewclass'){
+        this.toggleSelect="default";
       }
+    }
     });
   }
-
   ngOnInit(): void {
     this.userId = parseInt(localStorage.getItem('userId')!, 10);
     this.Username = localStorage.getItem('userName');
