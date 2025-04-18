@@ -14,7 +14,13 @@
       <option value="default" selected>Post Feedback</option>
       <option value="add">Add Class</option>
       <option value="view">My Feedbacks</option>
+    </select> -->
+    <select name="s1" id="s1" class="nav-link" [(ngModel)]="toggleSelect" (change)="toggleDropdown()">
+      <option value="default">Post Feedback</option>
+      <option value="add">Add Class</option>
+      <option value="view">My Feedbacks</option>
     </select>
+    
     <button class="nav-link" style="border: 1px solid var(--border-color); color: var(--border-color);" (click)="showLogoutModal = true">Logout</button>
   </div>
 </nav>
