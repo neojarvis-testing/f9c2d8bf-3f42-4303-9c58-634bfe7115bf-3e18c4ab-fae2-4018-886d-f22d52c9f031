@@ -15,7 +15,7 @@ export class AdminviewappliedrequestComponent implements OnInit {
   searchText: string = '';
   searchTerm: string = '';
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 5;
   constructor(private cookingClassService: CookingClassService) { }
   ngOnInit(): void {
     this.fetchRequests();

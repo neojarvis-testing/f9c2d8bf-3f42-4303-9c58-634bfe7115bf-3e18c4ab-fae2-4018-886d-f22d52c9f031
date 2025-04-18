@@ -1,9 +1,16 @@
+<div class="row mb-4 " id="main2" >
+  <!-- <div  id="img-left" > -->
+    <img src="https://images.unsplash.com/photo-1708335583165-57aa131a4969?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="right-img"  
+    class="col-md-5 d-flex justify-content-center align-items-center">
+  <!-- </div> -->
+  
 
-<div class="register-background container" style="max-width: 50%;">
+<div id="right-2" class="register-background container col-md-7 d-flex flex-column justify-content-center  " >
  
-  <div class="registration-container ">
-    <h1 class="text-center mb-4">Registration</h1>
-    <form (ngSubmit)="onRegister()" #registerForm="ngForm" class="row g-3 needs-validation" novalidate>
+  <div class="registration-container p-3 ">
+    <h1 class="text-center">Registration</h1>
+    <hr>
+    <form (ngSubmit)="onRegister()" #registerForm="ngForm" class="row g-3   needs-validation " novalidate>
       <div class="col-md-6">
         <label for="username" class="form-label">Username: <span class="required">*</span></label>
         <input id="username" type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" required
@@ -82,4 +89,6 @@
     </form>
     <p class="text-center mt-3">Already have an account? <a href="/login">Login Here</a></p>
   </div>
+</div>
+
 </div>

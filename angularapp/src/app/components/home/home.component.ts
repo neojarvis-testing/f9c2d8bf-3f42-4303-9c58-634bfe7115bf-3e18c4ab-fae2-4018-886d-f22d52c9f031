@@ -18,4 +18,7 @@ export class HomeComponent implements OnInit {
     const img = new Image();
     img.src = src;
   }
+
+
+  
 }

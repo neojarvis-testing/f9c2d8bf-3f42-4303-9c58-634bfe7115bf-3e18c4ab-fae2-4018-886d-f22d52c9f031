@@ -1,3 +1,63 @@
+/* Add this to your component's CSS */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    animation: fadeInDown 1.2s ease-out forwards;
+}
+
+/* Existing CSS */
+#main {
+    height: 600px;
+    background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-wrap: normal;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+}
+#main2{
+    height: 600px;
+    /* background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow-wrap: normal;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+}
+#right-2{
+    padding-right: 5%;
+}
+
+#left-cont {
+    padding-left: 20%;
+    color: azure;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for text */
+    /* padding: 20px; */
+    /* border-radius: 10px; */
+}
+
+#right-img {
+    /* background-color: aliceblue; */
+    background-color: rgba(0, 0, 0, 0.6); 
+
+}
+#img-1 {
+    width: 450px;
+    height: 450px;
+    /* clip-path: path('M 200 100 C 150 50, 50 50, 10 200 S 150 350, 200 300 S 350 350, 300 200 S 350 50, 200 100'); */
+    object-fit: contain; /* Ensures the image covers the entire shape */
+    overflow-wrap:inherit;
+}
+#img-2 {
+    width: 400px;
+    height: 400px;
+    /* clip-path: path('M 200 100 C 150 50, 50 50, 10 200 S 150 350, 200 300 S 350 350, 300 200 S 350 50, 200 100'); */
+    object-fit: fill; /* Ensures the image covers the entire shape */
+    /* overflow-wrap:; */
+}
+
 .animate-fade-in-down {
     animation: fadeInDown 1.2s ease-out forwards;
 }
@@ -96,4 +156,9 @@ body::before {
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+#carouselExampleInterval{
+    border-radius: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
 }

@@ -17,7 +17,7 @@ export class AdminviewfeedbackComponent implements OnInit {
   Username: string = '';
  
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 5;
   constructor(private feedbackService: FeedbackService, private router: Router) { }
   ngOnInit(): void {
     this.loadFeedbacks();
@@ -59,10 +59,12 @@ export class AdminviewfeedbackComponent implements OnInit {
     this.selectedFeedback = feedback;
     this.showProfileModal = true;
   }
+
   closeProfileModal(): void {
     this.showProfileModal = false;
     this.selectedFeedback = null;
   }
+  
   closeLogoutModal(): void {
     this.showLogoutModal = false;
   }
