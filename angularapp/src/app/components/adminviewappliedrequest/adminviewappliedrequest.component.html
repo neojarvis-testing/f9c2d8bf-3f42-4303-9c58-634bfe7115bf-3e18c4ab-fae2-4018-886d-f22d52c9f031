@@ -118,28 +118,20 @@
       </tbody>
     </table>
 
-    <div class="d-flex justify-content-between align-items-center mt-3" *ngIf="filteredRequests.length > itemsPerPage">
-      <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-primary">Previous</button>
-      <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
-      <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= filteredRequests.length" class="btn btn-primary">Next</button>
-    </div>
+  <div class="d-flex justify-content-between align-items-center mt-3" *ngIf="filteredRequests.length > itemsPerPage">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-primary">Previous</button>
+    <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === getTotalPages()" class="btn btn-primary">Next</button>
   </div>
+</div>
 
-  <div class="modal" *ngIf="selectedRequest" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Request Details</h5>
-          <button type="button" class="btn-close" (click)="closeModal()"></button>
-        </div>
-        <div class="modal-body">
-          <p><strong>Mobile Number:</strong> {{ selectedRequest.User.MobileNumber }}</p>
-          <p><strong>Skill Level:</strong> {{ selectedRequest.CookingClass.SkillLevel }}</p>
-          <p><strong>Requirements:</strong> {{ selectedRequest.CookingClass.SpecialRequirements }}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="modal" *ngIf="showModal">
+    <div class="modal-overlay" (click)="closeModal()"></div>
+    <div class="modal-content">
+        <span class="close-btn" (click)="closeModal()">&times;</span>
+        <h3>Request Details</h3>
+        <p><strong>Mobile Number:</strong> {{ selectedRequest?.User.MobileNumber }}</p>
+        <p><strong>Skill Level:</strong> {{ selectedRequest?.CookingClass.SkillLevel }}</p>
+        <p><strong>Requirements:</strong> {{ selectedRequest?.CookingClass.SpecialRequirements }}</p>
+      </div>
+</div>
