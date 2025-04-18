@@ -1,38 +1,48 @@
-<div class="container mt-5" style="max-width: 50%;">
-  <div class="card">
-    <div class="card-body">
-      <div class="form-header text-center mb-4">
-        <h1>Welcome Back!</h1>
-        <p>Log in to access your account and explore new features.</p>
+<div class="row mb-4 " id="main2">
+  <div id="right-2" class="register-background container col-md-5 d-flex flex-column justify-content-center  ">
+
+    <div class="card">
+      <div class="card-body p-4">
+        <div class="form-header text-center mb-4">
+          <h1>Welcome Back!</h1>
+          <p>Log in to access your account and explore new features.</p>
+        </div>
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="credentials.email" required
+              placeholder="Enter your email" class="form-control" />
+            <div *ngIf="loginForm.controls.email?.invalid && loginForm.controls.email?.touched" class="text-danger">
+              <div *ngIf="loginForm.controls.email?.errors?.required">Email is required.</div>
+              <div *ngIf="loginForm.controls.email?.errors?.email">Please enter a valid email address.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <div class="input-group">
+              <input [type]="passwordFieldType" id="password" name="password" [(ngModel)]="credentials.password"
+                required placeholder="Enter your password" class="form-control" />
+              <span class="input-group-text" (click)="togglePasswordVisibility()">
+                <i class="fa" [ngClass]="passwordFieldType === 'password' ? 'fa-eye-slash' : 'fa-eye'"></i>
+              </span>
+            </div>
+            <div *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched"
+              class="text-danger mt-1">
+              <div *ngIf="loginForm.controls.password?.errors?.required">Password is required.</div>
+            </div>
+          </div>
+          <div class="d-grid">
+            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+          </div>
+        </form>
+        <p class="text-center mt-3">Don't have an account? <a routerLink="/register">Register</a></p>
       </div>
-      <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="needs-validation" novalidate>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email:</label>
-          <input type="email" id="email" name="email" [(ngModel)]="credentials.email" required
-            placeholder="Enter your email" class="form-control" />
-          <div *ngIf="loginForm.controls.email?.invalid && loginForm.controls.email?.touched" class="text-danger">
-            <div *ngIf="loginForm.controls.email?.errors?.required">Email is required.</div>
-            <div *ngIf="loginForm.controls.email?.errors?.email">Please enter a valid email address.</div>
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password:</label>
-          <div class="input-group">
-            <input [type]="passwordFieldType" id="password" name="password" [(ngModel)]="credentials.password" required
-              placeholder="Enter your password" class="form-control" />
-            <span class="input-group-text" (click)="togglePasswordVisibility()">
-              <i class="fa" [ngClass]="passwordFieldType === 'password' ? 'fa-eye-slash' : 'fa-eye'"></i>
-            </span>
-          </div>
-          <div *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched" class="text-danger mt-1">
-            <div *ngIf="loginForm.controls.password?.errors?.required">Password is required.</div>
-          </div>
-        </div>
-        <div class="d-grid">
-          <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
-        </div>
-      </form>
-      <p class="text-center mt-3">Don't have an account? <a routerLink="/register">Register</a></p>
     </div>
   </div>
+
+    <!-- <div  id="img-left" > -->
+      <img
+      src="https://images.unsplash.com/photo-1708335583165-57aa131a4969?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="right-img" class="col-md-5 d-flex justify-content-center align-items-center">
+    <!-- </div> -->
 </div>
