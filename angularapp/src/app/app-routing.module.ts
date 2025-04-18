@@ -19,8 +19,8 @@ import { UserviewclassComponent } from './components/userviewclass/userviewclass
 import { UserviewappliedrequestComponent } from './components/userviewappliedrequest/userviewappliedrequest.component';
 import { UseraddrequestComponent } from './components/useraddrequest/useraddrequest.component';
 // import { LandingComponent } from './landing/landing.component';
-
-
+ 
+ 
 const routes: Routes = [
   // {path:'landing', component:LandingComponent},
   {path: 'login', component:LoginComponent},
@@ -42,11 +42,12 @@ const routes: Routes = [
   {path:'userviewclass', component:UserviewclassComponent, canActivate:[AuthGuard], data:{role:'User'}},
   {path:'userviewappliedrequest', component:UserviewappliedrequestComponent, canActivate:[AuthGuard], data:{role:'User'}},
   {path:'useraddrequest', component:UseraddrequestComponent, canActivate:[AuthGuard], data:{role:'User'}},
-  {path:'', redirectTo:'/register', pathMatch:'full'}
+  {path:'', redirectTo:'/home', pathMatch:'full'}
 ];
-
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+ 

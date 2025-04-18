@@ -11,12 +11,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userRole = this.authService.getUserRole();
     console.log(this.userRole);
-
+ 
     this.preloadImage('/assets/images/AdminHome1.jpg');
   }
   preloadImage(src: string): void {
     const img = new Image();
     img.src = src;
   }
-}
 
+
+  
+}

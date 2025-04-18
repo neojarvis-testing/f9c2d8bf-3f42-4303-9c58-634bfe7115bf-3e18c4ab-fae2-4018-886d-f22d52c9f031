@@ -56,7 +56,7 @@ export class AdminaddclassComponent implements OnInit {
       next: () => {
         this.route.navigate(['/adminviewclass']);
         this.showSuccessMessage('Cooking class added successfully');
-        this.showModal = true; 
+        this.showModal = true;
       },
       error: (error) => {
         console.error('Error adding cooking class:', error);
@@ -65,7 +65,7 @@ export class AdminaddclassComponent implements OnInit {
         } else {
           this.showErrorMessage('Error adding cooking class');
         }
-        this.showModal = true; 
+        this.showModal = true;
       }
     });
   }
@@ -117,7 +117,7 @@ export class AdminaddclassComponent implements OnInit {
   }
   closeModal() {
     this.showModal = false;  
-    this.showModalOnce = false; 
+    this.showModalOnce = false;
   }
   showErrorMessage(message: string): void {
     this.message = message;
@@ -136,3 +136,4 @@ export class AdminaddclassComponent implements OnInit {
     });
   }
 }
+ 

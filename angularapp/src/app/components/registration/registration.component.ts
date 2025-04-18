@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
-import Swal from 'sweetalert2'; 
-
+import Swal from 'sweetalert2';
+ 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -16,7 +16,7 @@ export class RegistrationComponent implements OnInit {
   confirmPassword: string = '';
   mobileNumber: string = '';
   userRole: string = '';
-  passwordFieldType: string = 'password'; 
+  passwordFieldType: string = 'password';
   confirmPasswordFieldType: string = 'password';
   adminCode: string = 'AD2025';
   constructor(private authService: AuthService, private router: Router) { }
@@ -55,9 +55,9 @@ export class RegistrationComponent implements OnInit {
       Email: this.email,
       Password: this.password,
       MobileNumber: this.mobileNumber,
-      UserRole: this.userRole 
+      UserRole: this.userRole
     };
-    console.log('Registration Data:', JSON.stringify(registrationData, null, 2)); 
+    console.log('Registration Data:', JSON.stringify(registrationData, null, 2));
     console.log('Role Value:', this.userRole);
     this.authService.register(registrationData).subscribe({
       next: (response) => {
@@ -90,5 +90,3 @@ export class RegistrationComponent implements OnInit {
     }
   }
 }
-
-
