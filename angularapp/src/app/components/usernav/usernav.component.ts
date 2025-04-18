@@ -20,7 +20,7 @@ export class UsernavComponent implements OnInit {
     MobileNumber: '',
     UserRole: ''
   };
-  toggleSelect : string = "";
+  toggleSelect : string = "default";
   classes: CookingClass[] = [];
   showClasses: boolean = false;
   showLogoutModal: boolean = false;
@@ -28,6 +28,7 @@ export class UsernavComponent implements OnInit {
   Username: string = '';
   ngOnInit(): void {
     this.Username = localStorage.getItem('userName');
+    this.toggleSelect="default";
   }
   fetchClasses() {
     this.cookingClassService.getAllCookingClasses().subscribe(
@@ -58,6 +59,9 @@ export class UsernavComponent implements OnInit {
       this.router.navigate(['/useraddfeedback']);
     }else if (this.toggleSelect === "view"){
       this.router.navigate(['/userviewfeedback']);
+    }
+    else{
+      this.toggleSelect="default";
     }
   }
 }
