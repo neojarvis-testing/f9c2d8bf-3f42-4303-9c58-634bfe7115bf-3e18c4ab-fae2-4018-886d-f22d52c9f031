@@ -138,17 +138,6 @@ export class AdminviewappliedrequestComponent implements OnInit {
       }
     });
   }
-
-  // showMore(request: CookingClassRequest): void {
-  //   this.selectedRequest = request;
-  //   this.showModal = true;
-  // }
-
-  // closeModal(): void {
-  //   this.selectedRequest = null;
-  //   this.showModal = false;
-  // }
-  
   showMore(request: CookingClassRequest): void {
     this.selectedRequest = request;
     this.showModal = true;
