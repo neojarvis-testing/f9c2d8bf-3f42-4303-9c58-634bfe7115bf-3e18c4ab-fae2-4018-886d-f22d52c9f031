@@ -30,7 +30,8 @@ export class UseraddrequestComponent implements OnInit {
       this.request.UserId = parseInt(userId, 10);
     }
   }
-  onSubmit(requestForm: any): void {
+  onSubmit(requestForm: any): void
+   {
     if (!this.request.DietaryPreferences || !this.request.CookingGoals) {
       requestForm.form.markAllAsTouched();
       return;
