@@ -40,7 +40,7 @@ namespace dotnetapp.Controllers
             }
         }
         [HttpGet("user/{userId}")]
-        [Authorize(Roles= "User")]
+        [Authorize(Roles= "User,Admin")]
         public async Task<ActionResult<IEnumerable<Feedback>>> GetFeedbacksByUserId(int userId)
         {
             try

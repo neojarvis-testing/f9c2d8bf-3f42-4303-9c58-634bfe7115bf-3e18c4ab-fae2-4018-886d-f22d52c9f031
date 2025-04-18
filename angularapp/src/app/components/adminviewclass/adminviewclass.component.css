@@ -1,0 +1,44 @@
+.view-feedback {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.custom-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+  border-color: solid black;
+}
+
+.custom-table th, .custom-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.custom-table th {
+  border: 1px solid #ddd;
+  background-color: #f2f2f2;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-controls {
+  margin-top: 20px;
+}
+
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #f2f2f2;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
