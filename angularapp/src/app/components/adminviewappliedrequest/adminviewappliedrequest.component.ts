@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookingClassRequest } from 'src/app/models/cooking-class-request.model';
 import { CookingClassService } from 'src/app/services/cooking-class.service';
+
 @Component({
   selector: 'app-adminviewappliedrequest',
   templateUrl: './adminviewappliedrequest.component.html',
@@ -16,10 +17,14 @@ export class AdminviewappliedrequestComponent implements OnInit {
   searchTerm: string = '';
   currentPage: number = 1;
   itemsPerPage: number = 5;
+  showModal : boolean = false;
+
   constructor(private cookingClassService: CookingClassService) { }
+
   ngOnInit(): void {
     this.fetchRequests();
   }
+
   fetchRequests(): void {
     this.cookingClassService.getAllCookingClassRequests().subscribe({
       next: (data: CookingClassRequest[]) => {
@@ -41,6 +46,7 @@ export class AdminviewappliedrequestComponent implements OnInit {
       }
     });
   }
+
   searchCookingClasses(): void {
     if (this.searchTerm) {
       this.filteredRequests = this.requests.filter(c => {
@@ -53,6 +59,7 @@ export class AdminviewappliedrequestComponent implements OnInit {
     }
     this.updatePagination();
   }
+
   filterData(): void {
     this.filteredRequests = this.requests.filter(req => {
       console.log(req);
@@ -65,31 +72,32 @@ export class AdminviewappliedrequestComponent implements OnInit {
     });
     this.updatePagination();
   }
+
   updatePagination(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.paginatedRequests = this.filteredRequests.slice(startIndex, endIndex);
   }
+
   nextPage(): void {
     if ((this.currentPage * this.itemsPerPage) < this.filteredRequests.length) {
       this.currentPage++;
       this.updatePagination();
     }
   }
+
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
       this.updatePagination();
     }
   }
+
   getTotalPages(): number {
     return Math.ceil(this.filteredRequests.length / this.itemsPerPage);
   }
+
   approveRequest(index: number, request: CookingClassRequest): void {
-    if (request.Status === 'Rejected') {
-      console.error("Cannot approve a rejected request.");
-      return;
-    }
     if (!request.CookingClassRequestId) {
       console.error("Invalid request ID. Request:", request);
       return;
@@ -109,11 +117,8 @@ export class AdminviewappliedrequestComponent implements OnInit {
       }
     });
   }
+
   rejectRequest(index: number, request: CookingClassRequest): void {
-    if (request.Status === 'Approved') {
-      console.error("Cannot reject an approved request.");
-      return;
-    }
     if (!request.CookingClassRequestId) {
       console.error("Invalid request ID.");
       return;
@@ -133,16 +138,35 @@ export class AdminviewappliedrequestComponent implements OnInit {
       }
     });
   }
+
+  // showMore(request: CookingClassRequest): void {
+  //   this.selectedRequest = request;
+  //   this.showModal = true;
+  // }
+
+  // closeModal(): void {
+  //   this.selectedRequest = null;
+  //   this.showModal = false;
+  // }
+  
   showMore(request: CookingClassRequest): void {
     this.selectedRequest = request;
+    this.showModal = true;
+    document.body.classList.add('modal-open');
   }
+
   closeModal(): void {
     this.selectedRequest = null;
+    this.showModal = false;
+    document.body.classList.remove('modal-open');
   }
+  
+
   onStatusChange(newStatus: string): void {
     this.statusFilter = newStatus;
     this.filterData();
   }
+
   onSearchChange(searchText: string): void {
     this.searchText = searchText;
     this.filterData();
