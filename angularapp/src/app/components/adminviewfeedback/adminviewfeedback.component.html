@@ -1,5 +1,5 @@
 
-<div class="container">
+<!-- <div class="container">
     <h2>Feedback Details</h2>
     <div *ngIf="feedbacks.length === 0">
         No data found
@@ -54,4 +54,204 @@
             <button (click)="closeLogoutModal()">Cancel</button>
         </div>
     </div>
+</div> -->
+<!-- <div class="container mt-5">
+  <h2 class="text-center mb-4">Feedback Details</h2>
+  <div *ngIf="feedbacks.length === 0" class="alert alert-warning text-center">
+    No data found
+  </div>
+  <div *ngIf="feedbacks.length > 0">
+    <table class="table table-bordered">
+      <thead class="thead-dark custom-thead">
+        <tr>
+          <th>S.No</th>
+          <th>User Name</th>
+          <th>Feedback</th>
+          <th>Posted Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of paginatedFeedbacks; let i = index">
+          <td class="custom-td">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+          <td class="custom-td">{{ feedback.User.Username }}</td>
+          <td class="custom-td">{{ feedback.FeedbackText }}</td>
+          <td class="custom-td">{{ feedback.Date | date: 'mediumDate' }}</td>
+          <td class="custom-td">
+            <button (click)="showProfile(feedback)" class="btn btn-info">Show Profile</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex justify-content-between align-items-center mt-3" *ngIf="feedbacks.length > itemsPerPage">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-primary">Previous</button>
+    <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= feedbacks.length" class="btn btn-primary">Next</button>
+  </div>
 </div>
+    
+    <div *ngIf="showProfileModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">User Profile</h5>
+            <button type="button" class="btn-close" (click)="closeProfileModal()"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Email:</strong> {{ selectedFeedback?.User.Email }}</p>
+            <p><strong>Username:</strong> {{ selectedFeedback?.User.Username }}</p>
+            <p><strong>Mobile Number:</strong> {{ selectedFeedback?.User.MobileNumber }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeProfileModal()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="container mt-5">
+      <h2 class="text-center mb-4">Feedback Details</h2>
+      <div *ngIf="feedbacks.length === 0" class="alert alert-warning text-center">
+        No data found
+      </div>
+      <div *ngIf="feedbacks.length > 0">
+        <table class="table table-bordered">
+          <thead class="thead-dark custom-thead">
+            <tr>
+              <th>S.No</th>
+              <th>User Name</th>
+              <th>Feedback</th>
+              <th>Posted Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let feedback of paginatedFeedbacks; let i = index">
+              <td class="custom-td text-center">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+              <td class="custom-td text-center">{{ feedback.User.Username }}</td>
+              <td class="custom-td text-center">{{ feedback.FeedbackText }}</td>
+              <td class="custom-td text-center">{{ feedback.Date | date: 'mediumDate' }}</td>
+              <td class="custom-td text-center">
+                <button (click)="showProfile(feedback)" class="btn btn-info">Show Profile</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-3" *ngIf="feedbacks.length > itemsPerPage">
+        <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-primary">Previous</button>
+        <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= feedbacks.length" class="btn btn-primary">Next</button>
+      </div>
+    </div>
+    
+    <div *ngIf="showProfileModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">User Profile</h5>
+            <button type="button" class="btn-close" (click)="closeProfileModal()"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Email:</strong> {{ selectedFeedback?.User.Email }}</p>
+            <p><strong>Username:</strong> {{ selectedFeedback?.User.Username }}</p>
+            <p><strong>Mobile Number:</strong> {{ selectedFeedback?.User.MobileNumber }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeProfileModal()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="showLogoutModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirm Logout</h5>
+            <button type="button" class="btn-close" (click)="closeLogoutModal()"></button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to logout?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="logout()">Yes, Logout</button>
+            <button type="button" class="btn btn-secondary" (click)="closeLogoutModal()">Cancel</button>
+               </div>
+      </div>
+    </div>
+  </div>
+   -->
+   <div class="container mt-5">
+    <h2 class="text-center mb-4">Feedback Details</h2>
+    <div *ngIf="feedbacks.length === 0" class="alert alert-warning text-center">
+      No data found
+    </div>
+    <div *ngIf="feedbacks.length > 0">
+      <table class="table table-bordered">
+        <thead class="thead-dark custom-thead">
+          <tr>
+            <th>S.No</th>
+            <th>User Name</th>
+            <th>Feedback</th>
+            <th>Posted Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let feedback of paginatedFeedbacks; let i = index">
+            <td class="custom-td text-center">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+            <td class="custom-td text-center">{{ feedback.User.Username }}</td>
+            <td class="custom-td text-center">{{ feedback.FeedbackText }}</td>
+            <td class="custom-td text-center">{{ feedback.Date | date: 'mediumDate' }}</td>
+            <td class="custom-td text-center">
+              <button (click)="showProfile(feedback)" class="btn btn-info">Show Profile</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-3" *ngIf="feedbacks.length > itemsPerPage">
+      <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-primary">Previous</button>
+      <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= feedbacks.length" class="btn btn-primary">Next</button>
+    </div>
+  </div>
+  
+  <div *ngIf="showProfileModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">User Profile</h5>
+          <button type="button" class="btn-close" (click)="closeProfileModal()"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Email:</strong> {{ selectedFeedback?.User.Email }}</p>
+          <p><strong>Username:</strong> {{ selectedFeedback?.User.Username }}</p>
+          <p><strong>Mobile Number:</strong> {{ selectedFeedback?.User.MobileNumber }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeProfileModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="showLogoutModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Logout</h5>
+          <button type="button" class="btn-close" (click)="closeLogoutModal()"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to logout?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="logout()">Yes, Logout</button>
+          <button type="button" class="btn btn-secondary" (click)="closeLogoutModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
