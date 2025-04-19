@@ -22,11 +22,27 @@ export class UserviewappliedrequestComponent implements OnInit {
     const userId = this.authService.getUserIdFromToken(localStorage.getItem('token')!);
     this.loadAppliedRequests(userId);
   }
+  showLoader(): void {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'block';
+    }
+  }
+
+  hideLoader(): void {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'none';
+    }
+  }
+  
   loadAppliedRequests(userId: string): void {
+    this.showLoader();
     this.cookingClassService.getCookingClassRequestsByUserId(userId).subscribe(
       (requests) => {
         this.appliedRequests = requests;
         this.updateFilteredRequests();
+        this.hideLoader();
       },
       (error) => console.error('Error fetching requests:', error)
     );

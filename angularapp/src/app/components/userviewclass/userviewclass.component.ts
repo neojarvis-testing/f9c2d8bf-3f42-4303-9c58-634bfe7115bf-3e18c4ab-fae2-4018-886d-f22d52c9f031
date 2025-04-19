@@ -16,6 +16,10 @@ export class UserviewclassComponent implements OnInit {
   searchTerm: string = '';
   currentPage: number = 1;
   classesPerPage: number = 10;
+  
+  cardS : boolean  = false  ;
+  tabelS : boolean = true   ;
+  
   constructor(
     private cookingClassService: CookingClassService,
     private authService: AuthService,
@@ -27,15 +31,31 @@ export class UserviewclassComponent implements OnInit {
     this.loadCookingClasses();
     this.loadAppliedClasses();
   }
+  showLoader(): void {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'block';
+    }
+  }
+
+  hideLoader(): void {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'none';
+    }
+  }
   loadCookingClasses(): void {
+    this.showLoader();
     this.cookingClassService.getAllCookingClasses().subscribe(
       (classes) => {
         this.cookingClasses = classes;
         this.updateFilteredClasses();
+        this.hideLoader();
       },
       (error) => {
         console.error('Error fetching classes:', error);
       }
+
     );
   }
   loadAppliedClasses(): void {
@@ -93,5 +113,16 @@ export class UserviewclassComponent implements OnInit {
       this.currentPage++;
       this.updateFilteredClasses();
     }
+  }
+
+  changeToTabel(){
+ 
+    this.tabelS = true;
+    this.cardS = false;
+  }
+  changeToCard(){
+ 
+    this.cardS = true;
+    this.tabelS = false;
   }
 }
