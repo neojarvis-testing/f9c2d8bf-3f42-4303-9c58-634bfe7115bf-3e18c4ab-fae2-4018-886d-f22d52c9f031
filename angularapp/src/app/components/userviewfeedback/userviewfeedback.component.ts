@@ -64,6 +64,7 @@ export class UserviewfeedbackComponent implements OnInit {
   getTotalPages(): number {
     return Math.ceil(this.feedbacks.length / this.itemsPerPage);
   }
+  
   confirmDelete(feedback: Feedback): void {
     this.selectedFeedback = feedback;
     this.showDeleteModal = true;
@@ -102,3 +103,4 @@ export class UserviewfeedbackComponent implements OnInit {
     this.showLogoutModal = false;
   }
 }
+

@@ -15,7 +15,7 @@ export class UserviewclassComponent implements OnInit {
   userId: number;
   searchTerm: string = '';
   currentPage: number = 1;
-  classesPerPage: number = 10;
+  classesPerPage: number = 5;
   constructor(
     private cookingClassService: CookingClassService,
     private authService: AuthService,
