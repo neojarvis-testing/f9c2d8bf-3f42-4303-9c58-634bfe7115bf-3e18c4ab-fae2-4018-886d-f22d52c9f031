@@ -22,6 +22,7 @@ import { UserviewclassComponent } from './components/userviewclass/userviewclass
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular';
  
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
