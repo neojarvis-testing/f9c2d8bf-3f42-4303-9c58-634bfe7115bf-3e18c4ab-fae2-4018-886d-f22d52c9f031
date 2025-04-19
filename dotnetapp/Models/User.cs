@@ -11,7 +11,6 @@ namespace dotnetapp.Models
         [Key]
         public int UserId{get;set;}
         [EmailAddress]
-        [Required]
         public string Email{get;set;}
         public string Password{get;set;}
         public string Username{get;set;}

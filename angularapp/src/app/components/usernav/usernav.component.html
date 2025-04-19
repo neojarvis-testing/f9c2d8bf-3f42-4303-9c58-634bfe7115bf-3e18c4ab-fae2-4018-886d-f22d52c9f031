@@ -1,27 +1,35 @@
-<nav class="navbar">
-  <div class="navbar-header">
-    <a href="#" class="navbar-brand">
-      <img src="logo.png" alt="Logo" class="logo">
-      <span class="brand-logo">Cooking Hub</span>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mx-1 my-1">
+  <div class="container">
+
+    <a class="navbar-brand" routerLink="/home" >
+      <img src="/assets/images/Logo1.png" alt="Cooking Hub Logo" class="rounded-circle logo">
+      <span class=""><strong>Cooking Hub</strong>  <br> <span class="">Hello, {{ Username }}! Welcome back!</span> </span>
     </a>
-  </div>
-  <div class="navigation">
-    <a routerLink="/home" class="nav-link">Home</a>
-    <a routerLink="/cooking-imp" class="nav-link">Importance of Cooking</a>
-    <a routerLink="/userviewclass" class="nav-link">Cooking Classes</a>
-    <a routerLink="/userviewappliedrequest" class="nav-link">Applied Classes</a>
-    <select name="s1" id="s1" class="nav-link" [(ngModel)]="toggleSelect" (change)="toggleDropdown()">
-      <option value="default" selected>Post Feedback</option>
+
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item mx-2">
+          <a routerLink="/cooking-imp" class="nav-link">Importance of Cooking</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a routerLink="/userviewclass" class="nav-link">Cooking Classes</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a routerLink="/userviewappliedrequest" class="nav-link">Applied Classes</a>
+        </li>
+        <li class="nav-item mx-2 dropdown">
+          <select class="form-select" name="s1" id="s1" [(ngModel)]="toggleSelect" (change)="toggleDropdown()">
+            <option value="default" selected>Post Feedback</option>
       <option value="add">Add Class</option>
       <option value="view">My Feedbacks</option>
-    </select> -->
-    <select name="s1" id="s1" class="nav-link" [(ngModel)]="toggleSelect" (change)="toggleDropdown()">
-      <option value="default">Post Feedback</option>
-      <option value="add">Add Class</option>
-      <option value="view">My Feedbacks</option>
-    </select>
-    
-    <button class="nav-link" style="border: 1px solid var(--border-color); color: var(--border-color);" (click)="showLogoutModal = true">Logout</button>
+          </select>
+        </li>        
+        <li class="nav-item mx-2">
+          <button class="btn btn-outline-danger" (click)="showLogoutModal = true">Logout</button>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -46,3 +54,7 @@
     Oops! No records Found
   </div>
 </ng-template>
+
+
+
+ 
