@@ -15,6 +15,9 @@ export class UserviewfeedbackComponent implements OnInit {
   showDeleteModal: boolean = false;
   showLogoutModal: boolean = false;
   errorMessage: string = '';
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
+  paginatedFeedbacks: Feedback[] = [];
   constructor(private feedbackService: FeedbackService, private authService: AuthService, private router: Router) {}
   ngOnInit(): void {
     this.loadFeedbacks();
@@ -25,6 +28,7 @@ export class UserviewfeedbackComponent implements OnInit {
       this.feedbackService.getAllFeedbacksByUserId(userId).subscribe(
         (data) => {
           this.feedbacks = data;
+          this.updatePagination();
           if (this.feedbacks.length === 0) {
             this.errorMessage = 'No data found';
           }
@@ -35,6 +39,30 @@ export class UserviewfeedbackComponent implements OnInit {
         }
       );
     }
+  }
+  
+  updatePagination(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedFeedbacks = this.feedbacks.slice(startIndex, endIndex);
+  }
+  
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePagination();
+    }
+  }
+  
+  nextPage(): void {
+    if (this.currentPage * this.itemsPerPage < this.feedbacks.length) {
+      this.currentPage++;
+      this.updatePagination();
+    }
+  }
+  
+  getTotalPages(): number {
+    return Math.ceil(this.feedbacks.length / this.itemsPerPage);
   }
   confirmDelete(feedback: Feedback): void {
     this.selectedFeedback = feedback;

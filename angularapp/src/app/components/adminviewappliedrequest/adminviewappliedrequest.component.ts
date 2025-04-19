@@ -141,15 +141,12 @@ export class AdminviewappliedrequestComponent implements OnInit {
   showMore(request: CookingClassRequest): void {
     this.selectedRequest = request;
     this.showModal = true;
-    document.body.classList.add('modal-open');
   }
- 
+  
   closeModal(): void {
     this.selectedRequest = null;
     this.showModal = false;
-    document.body.classList.remove('modal-open');
   }
- 
  
   onStatusChange(newStatus: string): void {
     this.statusFilter = newStatus;
@@ -161,3 +158,4 @@ export class AdminviewappliedrequestComponent implements OnInit {
     this.filterData();
   }
 }
+
