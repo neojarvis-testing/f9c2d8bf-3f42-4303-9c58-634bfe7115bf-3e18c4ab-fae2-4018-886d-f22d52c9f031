@@ -1,7 +1,114 @@
+// import { Component, OnInit } from '@angular/core';
+// import { Router } from '@angular/router';
+// import { CookingClass } from 'src/app/models/cooking-class.model';
+// import { CookingClassService } from 'src/app/services/cooking-class.service';
+// @Component({
+//   selector: 'app-adminviewclass',
+//   templateUrl: './adminviewclass.component.html',
+//   styleUrls: ['./adminviewclass.component.css']
+// })
+// export class AdminviewclassComponent implements OnInit {
+//   cookingClasses: CookingClass[] = [];
+//   filteredClasses: CookingClass[] = [];
+//   paginatedClasses: CookingClass[] = [];
+//   searchTerm: string = '';
+//   showDeleteModal: boolean = false;
+//   showErrorModal: boolean = false;
+//   classToDelete: number | null = null;
+//   errorMessage: string = '';
+//   currentPage: number = 1;
+//   itemsPerPage: number = 10;
+//   constructor(private cookingClassService: CookingClassService, private router: Router) { }
+//   ngOnInit(): void {
+//     this.loadClasses();
+//   }
+//   loadClasses(): void {
+//     this.showLoader()
+//     this.cookingClassService.getAllCookingClasses().subscribe(classes => {
+      
+//       this.cookingClasses = classes;
+//       this.filteredClasses = classes;
+//       this.updatePagination();
+//       this.hideLoader();
+//     });
+//   }
+//   showLoader(): void {
+//     const loader = document.getElementById('loader');
+//     if (loader) {
+//       loader.style.display = 'block';
+//     }
+//   }//loader code
+
+//   hideLoader(): void {
+//     const loader = document.getElementById('loader');
+//     if (loader) {
+//       loader.style.display = 'none';
+//     }
+//   }//loader code
+//   searchClasses(): void {
+//     if (this.searchTerm) {
+//       this.filteredClasses = this.cookingClasses.filter(c =>
+//         c.ClassName.toLowerCase().includes(this.searchTerm.toLowerCase())
+//       );
+//     } else {
+//       this.filteredClasses = [...this.cookingClasses];
+//     }
+//     this.updatePagination();
+//   }
+//   updatePagination(): void {
+//     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+//     const endIndex = startIndex + this.itemsPerPage;
+//     this.paginatedClasses = this.filteredClasses.slice(startIndex, endIndex);
+//   }
+//   nextPage(): void {
+//     if ((this.currentPage * this.itemsPerPage) < this.filteredClasses.length) {
+//       this.currentPage++;
+//       this.updatePagination();
+//     }
+//   }
+//   previousPage(): void {
+//     if (this.currentPage > 1) {
+//       this.currentPage--;
+//       this.updatePagination();
+//     }
+//   }
+//   getTotalPages(): number {
+//     return Math.ceil(this.filteredClasses.length / this.itemsPerPage);
+//   }
+//   editClass(classId: number): void {
+//     this.router.navigate([`admineditclass/${classId}`]);
+//   }
+//   confirmDelete(classId: number): void {
+//     this.classToDelete = classId;
+//     this.showDeleteModal = true;
+//   }
+//   deleteClass(): void {
+//     if (this.classToDelete !== null) {
+//       this.cookingClassService.deleteCookingClass(this.classToDelete).subscribe({
+//         next: () => {
+//           this.loadClasses();
+//           this.closeDeleteModal();
+//         },
+//         error: (error) => {
+//           this.errorMessage = error.error.Message || "An error occurred while deleting the cooking class.";
+//           this.showErrorModal = true;
+//         }
+//       });
+//     }
+//   }
+//   closeDeleteModal(): void {
+//     this.showDeleteModal = false;
+//     this.classToDelete = null;
+//   }
+//   closeErrorModal(): void {
+//     this.showErrorModal = false;
+//   }
+// }
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookingClass } from 'src/app/models/cooking-class.model';
 import { CookingClassService } from 'src/app/services/cooking-class.service';
+
 @Component({
   selector: 'app-adminviewclass',
   templateUrl: './adminviewclass.component.html',
@@ -18,17 +125,37 @@ export class AdminviewclassComponent implements OnInit {
   errorMessage: string = '';
   currentPage: number = 1;
   itemsPerPage: number = 10;
+
   constructor(private cookingClassService: CookingClassService, private router: Router) { }
+
   ngOnInit(): void {
     this.loadClasses();
   }
+
   loadClasses(): void {
+    this.showLoader();
     this.cookingClassService.getAllCookingClasses().subscribe(classes => {
       this.cookingClasses = classes;
       this.filteredClasses = classes;
       this.updatePagination();
+      this.hideLoader();
     });
   }
+
+  showLoader(): void {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'block';
+    }
+  }
+
+  hideLoader(): void {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'none';
+    }
+  }
+
   searchClasses(): void {
     if (this.searchTerm) {
       this.filteredClasses = this.cookingClasses.filter(c =>
@@ -39,33 +166,40 @@ export class AdminviewclassComponent implements OnInit {
     }
     this.updatePagination();
   }
+
   updatePagination(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.paginatedClasses = this.filteredClasses.slice(startIndex, endIndex);
   }
+
   nextPage(): void {
     if ((this.currentPage * this.itemsPerPage) < this.filteredClasses.length) {
       this.currentPage++;
       this.updatePagination();
     }
   }
+
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
       this.updatePagination();
     }
   }
+
   getTotalPages(): number {
     return Math.ceil(this.filteredClasses.length / this.itemsPerPage);
   }
+
   editClass(classId: number): void {
     this.router.navigate([`admineditclass/${classId}`]);
   }
+
   confirmDelete(classId: number): void {
     this.classToDelete = classId;
     this.showDeleteModal = true;
   }
+
   deleteClass(): void {
     if (this.classToDelete !== null) {
       this.cookingClassService.deleteCookingClass(this.classToDelete).subscribe({
@@ -80,10 +214,12 @@ export class AdminviewclassComponent implements OnInit {
       });
     }
   }
+
   closeDeleteModal(): void {
     this.showDeleteModal = false;
     this.classToDelete = null;
   }
+
   closeErrorModal(): void {
     this.showErrorModal = false;
   }

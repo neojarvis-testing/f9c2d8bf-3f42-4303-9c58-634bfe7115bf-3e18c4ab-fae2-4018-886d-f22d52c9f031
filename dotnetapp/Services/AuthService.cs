@@ -94,8 +94,7 @@ namespace dotnetapp.Services
             }
             return (0, "Invalid Password");
         }
- 
- 
+
         private string GenerateToken(IEnumerable<Claim> claims)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
