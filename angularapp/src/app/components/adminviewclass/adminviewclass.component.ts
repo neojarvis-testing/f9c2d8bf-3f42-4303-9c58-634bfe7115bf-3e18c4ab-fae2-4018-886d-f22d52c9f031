@@ -124,7 +124,7 @@ export class AdminviewclassComponent implements OnInit {
   classToDelete: number | null = null;
   errorMessage: string = '';
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 5;
 
   constructor(private cookingClassService: CookingClassService, private router: Router) { }
 
@@ -133,33 +133,23 @@ export class AdminviewclassComponent implements OnInit {
   }
 
   loadClasses(): void {
-    this.showLoader();
-    this.cookingClassService.getAllCookingClasses().subscribe(classes => {
-      this.cookingClasses = classes;
-      this.filteredClasses = classes;
-      this.updatePagination();
-      this.hideLoader();
+    this.cookingClassService.getAllCookingClasses().subscribe({
+      next: (classes) => {
+        this.cookingClasses = classes || [];
+        this.filteredClasses = [...this.cookingClasses];
+        this.updatePagination();
+      },
+      error: () => {
+        this.errorMessage = "Failed to load cooking classes. Please try again later.";
+        this.showErrorModal = true;
+      }
     });
-  }
-
-  showLoader(): void {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.style.display = 'block';
-    }
-  }
-
-  hideLoader(): void {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.style.display = 'none';
-    }
   }
 
   searchClasses(): void {
     if (this.searchTerm) {
       this.filteredClasses = this.cookingClasses.filter(c =>
-        c.ClassName.toLowerCase().includes(this.searchTerm.toLowerCase())
+        c.ClassName?.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     } else {
       this.filteredClasses = [...this.cookingClasses];
@@ -208,7 +198,7 @@ export class AdminviewclassComponent implements OnInit {
           this.closeDeleteModal();
         },
         error: (error) => {
-          this.errorMessage = error.error.Message || "An error occurred while deleting the cooking class.";
+          this.errorMessage = error?.error?.Message || "An error occurred while deleting the cooking class.";
           this.showErrorModal = true;
         }
       });

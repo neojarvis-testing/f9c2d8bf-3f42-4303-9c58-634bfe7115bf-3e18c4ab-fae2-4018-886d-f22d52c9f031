@@ -94,7 +94,9 @@ export class UserviewfeedbackComponent implements OnInit {
   showDeleteModal: boolean = false;
   showLogoutModal: boolean = false;
   errorMessage: string = '';
-
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
+  paginatedFeedbacks: Feedback[] = [];
   constructor(private feedbackService: FeedbackService, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
@@ -108,7 +110,7 @@ export class UserviewfeedbackComponent implements OnInit {
       this.feedbackService.getAllFeedbacksByUserId(userId).subscribe(
         (data) => {
           this.feedbacks = data;
-          this.hideLoader();
+          this.updatePagination();
           if (this.feedbacks.length === 0) {
             Swal.fire({
               icon: 'info',
@@ -129,21 +131,30 @@ export class UserviewfeedbackComponent implements OnInit {
       );
     }
   }
-
-  showLoader(): void {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.style.display = 'block';
+  
+  updatePagination(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedFeedbacks = this.feedbacks.slice(startIndex, endIndex);
+  }
+  
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePagination();
     }
   }
-
-  hideLoader(): void {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.style.display = 'none';
+  
+  nextPage(): void {
+    if (this.currentPage * this.itemsPerPage < this.feedbacks.length) {
+      this.currentPage++;
+      this.updatePagination();
     }
   }
-
+  
+  getTotalPages(): number {
+    return Math.ceil(this.feedbacks.length / this.itemsPerPage);
+  }
   confirmDelete(feedback: Feedback): void {
     this.selectedFeedback = feedback;
     this.showDeleteModal = true;

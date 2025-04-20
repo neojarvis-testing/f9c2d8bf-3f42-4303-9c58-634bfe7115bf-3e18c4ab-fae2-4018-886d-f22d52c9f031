@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mx-1 my-1">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
   <div class="container">
 
     <a class="navbar-brand" routerLink="/home" >
@@ -21,8 +21,8 @@
         <li class="nav-item mx-2 dropdown">
           <select class="form-select" name="s1" id="s1" [(ngModel)]="toggleSelect" (change)="toggleDropdown()">
             <option value="default" selected>Feedbacks</option>
-      <option value="add">Post Feedback</option>
-      <option value="view">My Feedbacks</option>
+            <option value="add">Post Feedback</option>
+            <option value="view">My Feedbacks</option>
           </select>
         </li>        
         <li class="nav-item mx-2">
