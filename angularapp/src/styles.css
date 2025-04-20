@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+/* You can add global styles to this file, and also import other style files */
+/* body{
+    margin : 0;
+    padding : 0;
+} */
+=======
+
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
+>>>>>>> e7139b0ee7f2973207a95c07c4bb65e0ebeb4350
