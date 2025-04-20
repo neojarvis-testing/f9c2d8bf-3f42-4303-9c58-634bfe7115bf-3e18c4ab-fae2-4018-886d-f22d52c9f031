@@ -1,7 +1,8 @@
+<div>
+  <h1  class="text-center">Edit Cooking Class</h1>
 
-<h1 class="text-center">Edit Cooking Class</h1>
-<div class="d-flex justify-content-center">
-  <form #editCookingClassForm="ngForm" (ngSubmit)="updateCookingClass()" novalidate class="row g-3" style="width: 50%;">
+  <div id="maintable" class="d-flex justify-content-center">
+    <form #editCookingClassForm="ngForm" (ngSubmit)="updateCookingClass()" novalidate class="row g-3" style="width: 50%;">
     <div class="col-md-6">
       <label for="className" class="form-label">Class Name <span style="color: red;">*</span></label>
       <input type="text" id="className" [(ngModel)]="editCookingClass.ClassName" name="ClassName" class="form-control" required>
@@ -69,8 +70,8 @@
         <small class="text-danger">Special Requirements is required.</small>
       </div>
     </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary" [disabled]="editCookingClassForm.invalid">Update</button>
+    <div class="col-12  ">
+      <button type="submit"  style="margin-right: 5px;"  class="btn btn-primary " [disabled]="editCookingClassForm.invalid">Update</button>
       <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Back</button>
     </div>
   </form>
@@ -82,4 +83,6 @@
     <p>{{ errorMessage }}</p>
     <button class="btn btn-primary" (click)="closeModal()">OK</button>
   </div>
+</div>
+
 </div>

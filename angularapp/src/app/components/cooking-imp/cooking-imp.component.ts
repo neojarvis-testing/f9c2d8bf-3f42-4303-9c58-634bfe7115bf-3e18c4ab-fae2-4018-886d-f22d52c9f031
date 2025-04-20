@@ -13,6 +13,7 @@ export class CookingImpComponent implements OnInit {
   role: string = this.isAdmin ? 'Admin' : 'User';
   userId: number;
   showDropdown = false;
+  title = 'The Importance of Cooking';
   constructor(private authService: AuthService, private feedbackService: FeedbackService, private router: Router) {}
   ngOnInit(): void {
     this.userId = parseInt(localStorage.getItem('userId')!, 10);
