@@ -12,12 +12,22 @@
               <div *ngIf="classForm.controls.ClassName?.errors?.maxlength">Class Name must be less than 50 characters</div>
             </div>
           </div>
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <label for="CuisineType" class="form-label">Cuisine Type <span class="text-danger">*</span></label>
             <input type="text" id="CuisineType" name="CuisineType" [(ngModel)]="newCookingClass.CuisineType" required minlength="1" maxlength="30" (blur)="validateField(classForm, 'CuisineType')" class="form-control">
             <div *ngIf="classForm.submitted || classForm.controls.CuisineType?.dirty" class="text-danger">
               <div *ngIf="classForm.controls.CuisineType?.errors?.required">Cuisine Type is required</div>
               <div *ngIf="classForm.controls.CuisineType?.errors?.maxlength">Cuisine Type must be less than 30 characters</div>
+            </div>
+          </div> -->
+          <div class="col-md-6">
+            <label for="CuisineType" class="form-label">Cuisine Type <span class="text-danger">*</span></label>
+            <select id="CuisineType" name="CuisineType" [(ngModel)]="newCookingClass.CuisineType" required class="form-control" (blur)="validateField(classForm, 'CuisineType')">
+              <option  value="" disabled selected>Select Cuisine Type</option>
+              <option *ngFor="let cuisine of cuisineTypes" [value]="cuisine">{{ cuisine }}</option>
+            </select>
+            <div *ngIf="classForm.submitted || classForm.controls.CuisineType?.dirty" class="text-danger">
+              <div *ngIf="classForm.controls.CuisineType?.errors?.required">Cuisine Type is required</div>
             </div>
           </div>
           <div class="col-md-6">
@@ -80,9 +90,14 @@
               <div *ngIf="classForm.controls.SpecialRequirements?.errors?.maxlength">Special Requirements must be less than 200 characters</div>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-md-6">
+            <label for="imageUrl" class="form-label">IMAGE URL<span class="text-danger">*</span></label>
+            <input type="file" id="imageUrl" (change)="onFileSelected($event)" name="imageUrl" #fileInput required class="form-control add-room-file-input">
+          </div>    
+          <div class="col-6">
             <button type="submit" [disabled]="classForm.invalid" class="btn btn-primary w-50">Submit</button>
           </div>
+
           <div class="form-validation-message col-12">
             <p *ngIf="message" [ngClass]="{'text-danger': message.includes('Error'), 'text-success': message.includes('Success')}">
               {{ message }}

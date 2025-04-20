@@ -29,11 +29,14 @@ export class UserviewappliedrequestComponent implements OnInit {
     this.loadAppliedRequests(userId);
   }
 
+  
   loadAppliedRequests(userId: string): void {
+  
     this.cookingClassService.getCookingClassRequestsByUserId(userId).subscribe(
       (requests) => {
         this.appliedRequests = requests;
         this.updateFilteredRequests();
+    
       },
       (error) => console.error('Error fetching requests:', error)
     );

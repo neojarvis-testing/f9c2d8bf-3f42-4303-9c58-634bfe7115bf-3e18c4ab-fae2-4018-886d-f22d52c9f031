@@ -120,6 +120,10 @@ namespace dotnetapp.Migrations
                     b.Property<decimal>("Fee")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("IngredientsProvided")
                         .IsRequired()
                         .HasMaxLength(100)
