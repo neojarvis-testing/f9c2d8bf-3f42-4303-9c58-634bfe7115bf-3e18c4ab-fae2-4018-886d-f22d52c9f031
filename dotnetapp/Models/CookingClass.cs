@@ -36,5 +36,8 @@ namespace dotnetapp.Models
         [Required]
         [MaxLength(100)]
         public string SpecialRequirements {get; set;}
+
+        [Required(ErrorMessage = "Image URL is required.")]
+        public string ImageUrl { get; set; }
     }
 }

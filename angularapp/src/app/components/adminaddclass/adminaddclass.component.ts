@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./adminaddclass.component.css']
 })
 export class AdminaddclassComponent implements OnInit {
+  cuisineTypes: string[] = ['Italian', 'Chinese', 'Indian', 'Mexican', 'French', 'Japanese', 'Thai', 'Spanish', 'Greek', 'Mediterranean'];
   newCookingClass: CookingClass = {
     ClassName: '',
     CuisineType: '',
@@ -20,8 +21,10 @@ export class AdminaddclassComponent implements OnInit {
     Fee: 0,
     IngredientsProvided: '',
     SkillLevel: '',
-    SpecialRequirements: ''
+    SpecialRequirements: '',
+    ImageUrl: ''
   };
+  selectedFile : File = null;
   formSubmitted: boolean = false;
   message: string = '';
   isLoggedIn: boolean = false;
@@ -43,6 +46,14 @@ export class AdminaddclassComponent implements OnInit {
       this.isLoggedIn = false;
       this.showErrorMessage('Please log in to add a cooking class');
     }
+  }
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.newCookingClass.ImageUrl = e.target.result;
+    };
+    reader.readAsDataURL(this.selectedFile);
   }
   addCookingClass(form: NgForm) {
     if (!this.isLoggedIn) {

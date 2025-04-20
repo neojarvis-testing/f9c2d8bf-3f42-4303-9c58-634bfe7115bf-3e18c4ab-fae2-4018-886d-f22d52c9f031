@@ -10,4 +10,5 @@ export interface CookingClass
     IngredientsProvided: string;
     SkillLevel: string;
     SpecialRequirements: string;
+    ImageUrl : string;
 }

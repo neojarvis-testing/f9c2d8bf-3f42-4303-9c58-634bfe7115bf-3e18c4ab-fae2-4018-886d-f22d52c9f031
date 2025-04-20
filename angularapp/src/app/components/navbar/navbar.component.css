@@ -1,28 +1,30 @@
-:root {
+/* :root {
     --primary-color: #ff6347; 
     --secondary-color: #ffffff; 
     --hover-color: #ff4500;  
        --background-color: grey; 
     --font-color: #333333; 
     --border-color: #ff0000;
-  }
+  } */
 
    
   .navbar {
     display: flex;
+    background-color: #333333;
+    color: #ffffff;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     padding:5px 5px; 
-    margin-left: 10% ;
-    margin-right: 10%;
-    margin-top: 5px;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid var(--border-color); 
+    /* margin-left: 10% ;
+    margin-right: 10%; */
+    /* margin-top: 5px; */
+    /* background-color: var(--primary-color); */
+    /* color: var(--secondary-color); */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    /* border: 2px solid var(--border-color);  */
     overflow-wrap: normal;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
    
   }
   img{
@@ -60,6 +62,7 @@
   }
 
   nav:hover{
+  
     border: solid;
     color: #333333;
   }

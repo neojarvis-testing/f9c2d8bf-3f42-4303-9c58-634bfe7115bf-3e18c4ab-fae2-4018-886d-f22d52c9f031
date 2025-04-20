@@ -17,7 +17,8 @@ export class AdmineditclassComponent implements OnInit {
     Fee: 0,
     IngredientsProvided: '',
     SkillLevel: '',
-    SpecialRequirements: ''
+    SpecialRequirements: '',
+    ImageUrl: ''
   };
   formSubmitted: boolean = false;
   editId: number;
