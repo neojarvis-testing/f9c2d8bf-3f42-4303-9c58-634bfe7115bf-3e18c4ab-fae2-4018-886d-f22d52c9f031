@@ -1,0 +1,11 @@
+git add .  
+git commit -m "hello"(to add the code to local branch)
+git push(to add the code for my branch in github)
+git pull origin main(to access the code that is uploaded by others)
+
+hello
+app
+<<<<<<< HEAD
+=======
+yelo
+>>>>>>> e7139b0ee7f2973207a95c07c4bb65e0ebeb4350
